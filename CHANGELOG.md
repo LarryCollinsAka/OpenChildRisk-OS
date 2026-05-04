@@ -16,6 +16,41 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [0.2.0] — In Progress
+
+### 🌍 Multilingual Support
+
+#### Added
+- `languages` table — registry of all supported languages
+- `district_translations` — EN + FR for all Cameroon districts
+- `facility_translations` — ready for facility names
+- `hazard_type_translations` — EN + FR + AR verified UTF8
+- `program_translations` — FR translations for all 5 programs
+- `organization_translations` — ready for org names
+- `get_district_name()` — DB function with EN fallback
+- `get_hazard_label()` — DB function with EN fallback
+- Language JSON files: `lang/en/`, `lang/fr/`, `lang/ar/`
+- Stub files for ES, PT, NL, DE with EN fallback
+- `Translator` class in Python risk engine
+- Language addition requires only one DB INSERT
+
+#### Fixed
+- UTF8 encoding for French accented characters
+- UTF8 encoding for Arabic script
+- Root cause: Windows PowerShell pipe corrupts
+  non-ASCII characters — fixed by direct psql input
+
+#### Languages
+| Code | Language | Status |
+|------|----------|--------|
+| en | English | Complete |
+| fr | Français | Complete |
+| ar | العربية | Complete |
+| es | Español | Pending |
+| pt | Português | Pending |
+| nl | Nederlands | Pending |
+| de | Deutsch | Pending |
+
 ## [0.1.0] — 2026-05-04
 
 ### 🎉 First Release — Infrastructure + Schema + Seed Data

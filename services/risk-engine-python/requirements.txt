@@ -1,0 +1,16 @@
+# OpenChildRisk OS — Risk Engine Dependencies
+# =============================================
+# Keep minimal for fast Docker builds
+# and low-resource deployment compatibility
+
+# FastAPI — modern Python web framework
+# Used for all API endpoints
+fastapi==0.104.1
+
+# Uvicorn — ASGI server for FastAPI
+# Runs the service inside Docker
+uvicorn==0.24.0
+
+# Pydantic — data validation
+# Used for request/response models
+pydantic==2.4.2

@@ -1,1 +1,42 @@
+# Environment files — never commit secrets
 .env
+.env.local
+.env.production
+
+# Docker volumes
+postgres_data/
+redis_data/
+minio_data/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# Node
+node_modules/
+dist/
+.next/
+
+# Laravel
+vendor/
+storage/logs/
+storage/framework/cache/
+storage/framework/sessions/
+storage/framework/views/
+bootstrap/cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp

@@ -6,7 +6,7 @@
 Built on UNICEF's Children's Climate Risk Index (CCRI) methodology
 and aligned with the State of the World's Children policy framework.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker)](docker-compose.yml)
 [![UNICEF Aligned](https://img.shields.io/badge/UNICEF-Aligned-00AEEF)](docs/UNICEF-ALIGNMENT.md)
 [![Status](https://img.shields.io/badge/Status-Active%20Development-green)]()
@@ -382,12 +382,17 @@ Coming soon: `CONTRIBUTING.md`
 
 ## 📄 License
 
-MIT License — free to use, adapt, and deploy.
+Licensed under the **Apache License 2.0**.
 
-Governments and humanitarian organizations may deploy
-this system without licensing fees or restrictions.
+This means:
+- ✔ Free to use, modify and distribute
+- ✔ Commercial use permitted
+- ✔ Patent protection for contributors
+- ✔ Governments and humanitarian organizations
+  may deploy without licensing fees
+- ✔ Countries may adapt for local contexts
 
----
+See [LICENSE](LICENSE) for full terms.
 
 <div align="center">
 

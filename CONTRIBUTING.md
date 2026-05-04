@@ -535,6 +535,17 @@ We expect all contributors to:
 
 ---
 
+## 📄 License
+
+By contributing to OpenChildRisk OS, you agree that
+your contributions will be licensed under the
+**Apache License 2.0**.
+
+This protects:
+- Contributors via patent grant
+- Governments deploying the system
+- Children whose protection depends on it
+
 <div align="center">
 
 **Every line of code is a line of defence for a child.**

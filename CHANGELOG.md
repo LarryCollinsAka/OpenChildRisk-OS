@@ -51,6 +51,22 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 | nl | Nederlands | Pending |
 | de | Deutsch | Pending |
 
+### Added
+- Python FastAPI risk engine fully operational
+- Versioned API routing (/api/v1/)
+- GET /api/v1/health — returns service status
+- POST /api/v1/risk/evaluate — cholera risk scoring
+- CholeraRiskEngine — WASH vulnerability methodology
+- Score: 7.84/10 HIGH for Mora district (validated)
+- Multilingual database layer (7 languages)
+- Entity-specific translation tables
+- UTF8 encoding verified for FR and AR
+
+### Fixed
+- VS Code replaces Notepad for all file creation
+- __init__.py files added to Python packages
+- Versioned router correctly mounted at /api/v1/
+
 ## [0.1.0] — 2026-05-04
 
 ### 🎉 First Release — Infrastructure + Schema + Seed Data

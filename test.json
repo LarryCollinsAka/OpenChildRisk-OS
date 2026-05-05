@@ -1,0 +1,2748 @@
+{
+        "id": 1,
+        "name": "Afghanistan",
+        "iso3": "AFG",
+        "iso2": "AF",
+        "numeric_code": "004",
+        "phonecode": "93",
+        "capital": "Kabul",
+        "currency": "AFN",
+        "currency_name": "Afghan afghani",
+        "currency_symbol": "؋",
+        "tld": ".af",
+        "native": "افغانستان",
+        "population": 43844000,
+        "gdp": null,
+        "region": "Asia",
+        "region_id": 3,
+        "subregion": "Southern Asia",
+        "subregion_id": 14,
+        "nationality": "Afghan",
+        "timezones": [
+            {
+                "zoneName": "Asia\/Kabul",
+                "gmtOffset": 16200,
+                "gmtOffsetName": "UTC+04:30",
+                "abbreviation": "AFT",
+                "tzName": "Afghanistan Time"
+            }
+        ],
+        "translations": {
+            "br": "Afghanistan",
+            "ko": "아프가니스탄",
+            "pt-BR": "Afeganistão",
+            "pt": "Afeganistão",
+            "nl": "Afghanistan",
+            "hr": "Afganistan",
+            "fa": "افغانستان",
+            "de": "Afghanistan",
+            "es": "Afganistán",
+            "fr": "Afghanistan",
+            "ja": "アフガニスタン",
+            "it": "Afghanistan",
+            "zh-CN": "阿富汗",
+            "tr": "Afganistan",
+            "ru": "Афганистан",
+            "uk": "Афганістан",
+            "pl": "Afganistan",
+            "ar": "أفغانستان",
+            "hi": "अफ़ग़ानिस्तान"
+        },
+        "latitude": "33.00000000",
+        "longitude": "65.00000000",
+        "emoji": "🇦🇫",
+        "emojiU": "U+1F1E6 U+1F1EB",
+        "states": [
+            {
+                "id": 3901,
+                "name": "Badakhshan",
+                "iso2": "BDS",
+                "iso3166_2": "AF-BDS",
+                "native": "بدخشان",
+                "latitude": "36.80402540",
+                "longitude": "71.36765800",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 52,
+                        "name": "Ashkāsham",
+                        "latitude": "36.68333000",
+                        "longitude": "71.53333000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 68,
+                        "name": "Fayzabad",
+                        "latitude": "37.11664000",
+                        "longitude": "70.58002000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 78,
+                        "name": "Jurm",
+                        "latitude": "36.86477000",
+                        "longitude": "70.83421000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 84,
+                        "name": "Khandūd",
+                        "latitude": "36.95127000",
+                        "longitude": "72.31800000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 115,
+                        "name": "Rāghistān",
+                        "latitude": "37.66079000",
+                        "longitude": "70.67346000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 131,
+                        "name": "Wākhān",
+                        "latitude": "37.05710000",
+                        "longitude": "73.34928000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3871,
+                "name": "Badghis",
+                "iso2": "BDG",
+                "iso3166_2": "AF-BDG",
+                "native": "بادغیس",
+                "latitude": "35.00000000",
+                "longitude": "63.75000000",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 72,
+                        "name": "Ghormach",
+                        "latitude": "35.73062000",
+                        "longitude": "63.78264000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 108,
+                        "name": "Qala i Naw",
+                        "latitude": "34.98735000",
+                        "longitude": "63.12891000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3875,
+                "name": "Baghlan",
+                "iso2": "BGL",
+                "iso3166_2": "AF-BGL",
+                "native": "بغلان",
+                "latitude": "36.17890260",
+                "longitude": "68.74530640",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 54,
+                        "name": "Baghlān",
+                        "latitude": "36.13068000",
+                        "longitude": "68.70829000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 140,
+                        "name": "Ḩukūmatī Dahanah-ye Ghōrī",
+                        "latitude": "35.90617000",
+                        "longitude": "68.48869000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 101,
+                        "name": "Nahrīn",
+                        "latitude": "36.06490000",
+                        "longitude": "69.13343000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 105,
+                        "name": "Pul-e Khumrī",
+                        "latitude": "35.94458000",
+                        "longitude": "68.71512000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3884,
+                "name": "Balkh",
+                "iso2": "BAL",
+                "iso3166_2": "AF-BAL",
+                "native": "بلخ",
+                "latitude": "36.75506030",
+                "longitude": "66.89753720",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 55,
+                        "name": "Balkh",
+                        "latitude": "36.75635000",
+                        "longitude": "66.89720000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 65,
+                        "name": "Dowlatābād",
+                        "latitude": "36.98821000",
+                        "longitude": "66.82069000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 85,
+                        "name": "Khulm",
+                        "latitude": "36.69736000",
+                        "longitude": "67.69826000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 91,
+                        "name": "Lab-Sar",
+                        "latitude": "36.02634000",
+                        "longitude": "66.83799000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 97,
+                        "name": "Mazār-e Sharīf",
+                        "latitude": "36.70904000",
+                        "longitude": "67.11087000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 112,
+                        "name": "Qarchī Gak",
+                        "latitude": "37.03999000",
+                        "longitude": "66.78891000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3872,
+                "name": "Bamyan",
+                "iso2": "BAM",
+                "iso3166_2": "AF-BAM",
+                "native": "بامیان",
+                "latitude": "34.79463100",
+                "longitude": "67.68433400",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 57,
+                        "name": "Bāmyān",
+                        "latitude": "34.82156000",
+                        "longitude": "67.82734000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 104,
+                        "name": "Panjāb",
+                        "latitude": "34.38795000",
+                        "longitude": "67.02327000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3892,
+                "name": "Daykundi",
+                "iso2": "DAY",
+                "iso3166_2": "AF-DAY",
+                "native": "دیوکونډي",
+                "latitude": "33.72511300",
+                "longitude": "66.21965540",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 102,
+                        "name": "Nīlī",
+                        "latitude": "33.76329000",
+                        "longitude": "66.07617000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3899,
+                "name": "Farah",
+                "iso2": "FRA",
+                "iso3166_2": "AF-FRA",
+                "native": "فراه",
+                "latitude": "32.37409070",
+                "longitude": "62.11462660",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 66,
+                        "name": "Farah",
+                        "latitude": "32.37451000",
+                        "longitude": "62.11638000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3889,
+                "name": "Faryab",
+                "iso2": "FYB",
+                "iso3166_2": "AF-FYB",
+                "native": "د فارماب",
+                "latitude": "35.92617840",
+                "longitude": "64.62377580",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 50,
+                        "name": "Andkhoy",
+                        "latitude": "36.95293000",
+                        "longitude": "65.12376000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 96,
+                        "name": "Maymana",
+                        "latitude": "35.92139000",
+                        "longitude": "64.78361000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3870,
+                "name": "Ghazni",
+                "iso2": "GHA",
+                "iso3166_2": "AF-GHA",
+                "native": "غزني",
+                "latitude": "33.54505870",
+                "longitude": "68.41739720",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 71,
+                        "name": "Ghazni",
+                        "latitude": "33.55391000",
+                        "longitude": "68.42096000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3888,
+                "name": "Ghōr",
+                "iso2": "GHO",
+                "iso3166_2": "AF-GHO",
+                "native": "جور",
+                "latitude": "34.16052570",
+                "longitude": "64.92019490",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 67,
+                        "name": "Fayrōz Kōh",
+                        "latitude": "34.51952000",
+                        "longitude": "65.25093000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 121,
+                        "name": "Shahrak",
+                        "latitude": "34.10737000",
+                        "longitude": "64.30520000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3873,
+                "name": "Helmand",
+                "iso2": "HEL",
+                "iso3166_2": "AF-HEL",
+                "native": "هلمند",
+                "latitude": "31.00000000",
+                "longitude": "64.00000000",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 141,
+                        "name": "‘Alāqahdārī Dīshū",
+                        "latitude": "30.43206000",
+                        "longitude": "63.29802000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 70,
+                        "name": "Gereshk",
+                        "latitude": "31.82089000",
+                        "longitude": "64.57005000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 93,
+                        "name": "Lashkar Gāh",
+                        "latitude": "31.59382000",
+                        "longitude": "64.37161000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 95,
+                        "name": "Markaz-e Ḩukūmat-e Darwēshān",
+                        "latitude": "31.13231000",
+                        "longitude": "64.19340000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 118,
+                        "name": "Sangīn",
+                        "latitude": "32.07275000",
+                        "longitude": "64.83590000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3887,
+                "name": "Herat",
+                "iso2": "HER",
+                "iso3166_2": "AF-HER",
+                "native": "هرات",
+                "latitude": "34.34914430",
+                "longitude": "62.21632520",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 60,
+                        "name": "Chahār Burj",
+                        "latitude": "34.24475000",
+                        "longitude": "62.19165000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 73,
+                        "name": "Ghōriyān",
+                        "latitude": "34.34480000",
+                        "longitude": "61.49321000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 74,
+                        "name": "Herāt",
+                        "latitude": "34.34817000",
+                        "longitude": "62.19967000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 80,
+                        "name": "Kafir Qala",
+                        "latitude": "34.66667000",
+                        "longitude": "61.06667000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 82,
+                        "name": "Karukh",
+                        "latitude": "34.48108000",
+                        "longitude": "62.58630000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 88,
+                        "name": "Kuhsān",
+                        "latitude": "34.65389000",
+                        "longitude": "61.19778000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 90,
+                        "name": "Kushk",
+                        "latitude": "33.29565000",
+                        "longitude": "61.95221000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 111,
+                        "name": "Qarah Bāgh",
+                        "latitude": "34.94023000",
+                        "longitude": "61.77589000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 123,
+                        "name": "Shīnḏanḏ",
+                        "latitude": "33.30294000",
+                        "longitude": "62.14740000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 129,
+                        "name": "Tīr Pul",
+                        "latitude": "34.59431000",
+                        "longitude": "61.26895000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 135,
+                        "name": "Zindah Jān",
+                        "latitude": "34.34264000",
+                        "longitude": "61.74675000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3886,
+                "name": "Jowzjan",
+                "iso2": "JOW",
+                "iso3166_2": "AF-JOW",
+                "native": "جوزجان",
+                "latitude": "36.96657060",
+                "longitude": "65.95602320",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 136,
+                        "name": "Āqchah",
+                        "latitude": "36.90500000",
+                        "longitude": "66.18341000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 63,
+                        "name": "Darzāb",
+                        "latitude": "35.97744000",
+                        "longitude": "65.37828000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 113,
+                        "name": "Qarqīn",
+                        "latitude": "37.41853000",
+                        "longitude": "66.04358000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 122,
+                        "name": "Shibirghān",
+                        "latitude": "36.66757000",
+                        "longitude": "65.75290000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3902,
+                "name": "Kabul",
+                "iso2": "KAB",
+                "iso3166_2": "AF-KAB",
+                "native": "کابل",
+                "latitude": "34.52664310",
+                "longitude": "69.18490820",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 79,
+                        "name": "Kabul",
+                        "latitude": "34.52813000",
+                        "longitude": "69.17233000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 99,
+                        "name": "Mīr Bachah Kōṯ",
+                        "latitude": "34.74999000",
+                        "longitude": "69.11899000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 103,
+                        "name": "Paghmān",
+                        "latitude": "34.58787000",
+                        "longitude": "68.95091000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3890,
+                "name": "Kandahar",
+                "iso2": "KAN",
+                "iso3166_2": "AF-KAN",
+                "native": "کندهار",
+                "latitude": "31.62057380",
+                "longitude": "65.71575730",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 81,
+                        "name": "Kandahār",
+                        "latitude": "31.61332000",
+                        "longitude": "65.71013000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3879,
+                "name": "Kapisa",
+                "iso2": "KAP",
+                "iso3166_2": "AF-KAP",
+                "native": "کیپټن",
+                "latitude": "34.90555600",
+                "longitude": "69.74166700",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 124,
+                        "name": "Sidqābād",
+                        "latitude": "35.02298000",
+                        "longitude": "69.35112000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3878,
+                "name": "Khost",
+                "iso2": "KHO",
+                "iso3166_2": "AF-KHO",
+                "native": "خوست",
+                "latitude": "33.33914020",
+                "longitude": "69.92063590",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 87,
+                        "name": "Khōst",
+                        "latitude": "33.33951000",
+                        "longitude": "69.92041000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3876,
+                "name": "Kunar",
+                "iso2": "KNR",
+                "iso3166_2": "AF-KNR",
+                "native": "دری برابره",
+                "latitude": "34.95000000",
+                "longitude": "71.13333300",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 51,
+                        "name": "Asadabad",
+                        "latitude": "34.87311000",
+                        "longitude": "71.14697000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 138,
+                        "name": "Āsmār",
+                        "latitude": "35.03333000",
+                        "longitude": "71.35809000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3900,
+                "name": "Kunduz Province",
+                "iso2": "KDZ",
+                "iso3166_2": "AF-KDZ",
+                "native": "کندز ولایت",
+                "latitude": "36.87071870",
+                "longitude": "68.75635280",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 64,
+                        "name": "Dasht-e Archī",
+                        "latitude": "37.13333000",
+                        "longitude": "69.16667000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 75,
+                        "name": "Imām Şāḩib",
+                        "latitude": "37.18897000",
+                        "longitude": "68.93644000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 83,
+                        "name": "Khanabad",
+                        "latitude": "36.68250000",
+                        "longitude": "69.11556000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 89,
+                        "name": "Kunduz",
+                        "latitude": "36.72895000",
+                        "longitude": "68.85700000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 114,
+                        "name": "Qarāwul",
+                        "latitude": "37.21959000",
+                        "longitude": "68.78020000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3891,
+                "name": "Laghman",
+                "iso2": "LAG",
+                "iso3166_2": "AF-LAG",
+                "native": "لغمان",
+                "latitude": "34.78333300",
+                "longitude": "70.18333300",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 98,
+                        "name": "Mehtar Lām",
+                        "latitude": "34.67139000",
+                        "longitude": "70.20944000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3897,
+                "name": "Logar",
+                "iso2": "LOG",
+                "iso3166_2": "AF-LOG",
+                "native": "لوګر",
+                "latitude": "34.06535950",
+                "longitude": "69.16017200",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 56,
+                        "name": "Baraki Barak",
+                        "latitude": "33.96744000",
+                        "longitude": "68.94920000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 139,
+                        "name": "Ḩukūmatī Azrah",
+                        "latitude": "34.17355000",
+                        "longitude": "69.64573000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 106,
+                        "name": "Pul-e ‘Alam",
+                        "latitude": "33.99529000",
+                        "longitude": "69.02274000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3882,
+                "name": "Nangarhar",
+                "iso2": "NAN",
+                "iso3166_2": "AF-NAN",
+                "native": "ننګرهار",
+                "latitude": "34.22038900",
+                "longitude": "70.38003140",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 58,
+                        "name": "Bāsawul",
+                        "latitude": "34.24749000",
+                        "longitude": "70.87218000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 77,
+                        "name": "Jalālābād",
+                        "latitude": "34.42647000",
+                        "longitude": "70.45153000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3896,
+                "name": "Nimruz",
+                "iso2": "NIM",
+                "iso3166_2": "AF-NIM",
+                "native": "نیمروز",
+                "latitude": "30.77538110",
+                "longitude": "62.47930880",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 86,
+                        "name": "Khāsh",
+                        "latitude": "31.52919000",
+                        "longitude": "62.79055000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 100,
+                        "name": "Mīrābād",
+                        "latitude": "30.43624000",
+                        "longitude": "61.83830000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 116,
+                        "name": "Rūdbār",
+                        "latitude": "30.15000000",
+                        "longitude": "62.60000000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 132,
+                        "name": "Zaranj",
+                        "latitude": "30.95962000",
+                        "longitude": "61.86037000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3880,
+                "name": "Nuristan",
+                "iso2": "NUR",
+                "iso3166_2": "AF-NUR",
+                "native": "نورستان",
+                "latitude": "35.30000000",
+                "longitude": "70.83333300",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 107,
+                        "name": "Pārūn",
+                        "latitude": "35.42064000",
+                        "longitude": "70.92261000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3894,
+                "name": "Paktia",
+                "iso2": "PIA",
+                "iso3166_2": "AF-PIA",
+                "native": "بسته",
+                "latitude": "33.70572400",
+                "longitude": "69.40835550",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 69,
+                        "name": "Gardez",
+                        "latitude": "33.59744000",
+                        "longitude": "69.22592000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3877,
+                "name": "Paktika",
+                "iso2": "PKA",
+                "iso3166_2": "AF-PKA",
+                "native": "بسته",
+                "latitude": "32.39362310",
+                "longitude": "68.70365140",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 120,
+                        "name": "Saṟōbī",
+                        "latitude": "32.75221000",
+                        "longitude": "69.04587000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 134,
+                        "name": "Zaṟah Sharan",
+                        "latitude": "33.14641000",
+                        "longitude": "68.79213000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 133,
+                        "name": "Zarghūn Shahr",
+                        "latitude": "32.84734000",
+                        "longitude": "68.44573000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3881,
+                "name": "Panjshir",
+                "iso2": "PAN",
+                "iso3166_2": "AF-PAN",
+                "native": "پنجشیر",
+                "latitude": "35.69735560",
+                "longitude": "70.09996040",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 59,
+                        "name": "Bāzārak",
+                        "latitude": "35.31292000",
+                        "longitude": "69.51519000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3895,
+                "name": "Parwan",
+                "iso2": "PAR",
+                "iso3166_2": "AF-PAR",
+                "native": "ایوان",
+                "latitude": "34.97970140",
+                "longitude": "68.91467030",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 61,
+                        "name": "Charikar",
+                        "latitude": "35.01361000",
+                        "longitude": "69.17139000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 76,
+                        "name": "Jabal os Saraj",
+                        "latitude": "35.11833000",
+                        "longitude": "69.23778000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3883,
+                "name": "Samangan",
+                "iso2": "SAM",
+                "iso3166_2": "AF-SAM",
+                "native": "خدايه",
+                "latitude": "36.26749380",
+                "longitude": "68.02153740",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 53,
+                        "name": "Aībak",
+                        "latitude": "36.26468000",
+                        "longitude": "68.01551000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3885,
+                "name": "Sar-e Pol",
+                "iso2": "SAR",
+                "iso3166_2": "AF-SAR",
+                "native": "سرپل پول",
+                "latitude": "36.21662800",
+                "longitude": "65.93336000",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 62,
+                        "name": "Chīras",
+                        "latitude": "35.41674000",
+                        "longitude": "65.98234000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 92,
+                        "name": "Larkird",
+                        "latitude": "35.48936000",
+                        "longitude": "66.66409000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 110,
+                        "name": "Qal‘ah-ye Shahr",
+                        "latitude": "35.54729000",
+                        "longitude": "65.56760000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 117,
+                        "name": "Sang-e Chārak",
+                        "latitude": "35.84972000",
+                        "longitude": "66.43694000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 119,
+                        "name": "Sar-e Pul",
+                        "latitude": "36.21544000",
+                        "longitude": "65.93249000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 125,
+                        "name": "Tagāw-Bāy",
+                        "latitude": "35.69941000",
+                        "longitude": "66.06164000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 128,
+                        "name": "Tukzār",
+                        "latitude": "35.94831000",
+                        "longitude": "66.42132000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3893,
+                "name": "Takhar",
+                "iso2": "TAK",
+                "iso3166_2": "AF-TAK",
+                "native": "تخار",
+                "latitude": "36.59407320",
+                "longitude": "69.79389960",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 137,
+                        "name": "Ārt Khwājah",
+                        "latitude": "37.08571000",
+                        "longitude": "69.47958000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 126,
+                        "name": "Taloqan",
+                        "latitude": "36.73605000",
+                        "longitude": "69.53451000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3898,
+                "name": "Urozgan",
+                "iso2": "URU",
+                "iso3166_2": "AF-URU",
+                "native": "ارزګان",
+                "latitude": "32.81296810",
+                "longitude": "66.01831850",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 127,
+                        "name": "Tarinkot",
+                        "latitude": "32.62998000",
+                        "longitude": "65.87806000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 130,
+                        "name": "Uruzgān",
+                        "latitude": "32.92775000",
+                        "longitude": "66.63253000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 5468,
+                "name": "Wardak",
+                "iso2": "WAR",
+                "iso3166_2": "AF-WAR",
+                "native": "میدان وردک",
+                "latitude": "34.30000000",
+                "longitude": "68.50000000",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 157060,
+                        "name": "Chaki Wardak",
+                        "latitude": "34.29000000",
+                        "longitude": "68.58000000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 157064,
+                        "name": "Day Mirdad",
+                        "latitude": "34.50000000",
+                        "longitude": "69.00000000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 157065,
+                        "name": "Hisa-i-Awali Bihsud",
+                        "latitude": "34.65000000",
+                        "longitude": "68.18000000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 157067,
+                        "name": "Jaghatu",
+                        "latitude": "34.08000000",
+                        "longitude": "68.45000000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 157061,
+                        "name": "Jalrez",
+                        "latitude": "34.52000000",
+                        "longitude": "68.78000000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 157059,
+                        "name": "Maidan Shahr",
+                        "latitude": "34.38000000",
+                        "longitude": "68.54000000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 157066,
+                        "name": "Markaz-i-Bihsud",
+                        "latitude": "34.55000000",
+                        "longitude": "67.80000000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 157062,
+                        "name": "Nerkh",
+                        "latitude": "34.49000000",
+                        "longitude": "68.51000000",
+                        "timezone": "Asia\/Kabul"
+                    },
+                    {
+                        "id": 157063,
+                        "name": "Sayed Abad",
+                        "latitude": "34.00000000",
+                        "longitude": "68.63000000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            },
+            {
+                "id": 3874,
+                "name": "Zabul",
+                "iso2": "ZAB",
+                "iso3166_2": "AF-ZAB",
+                "native": "زابل",
+                "latitude": "32.30689420",
+                "longitude": "67.12990400",
+                "type": "province",
+                "timezone": "Asia\/Kabul",
+                "cities": [
+                    {
+                        "id": 109,
+                        "name": "Qalāt",
+                        "latitude": "32.10575000",
+                        "longitude": "66.90833000",
+                        "timezone": "Asia\/Kabul"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Aland Islands",
+        "iso3": "ALA",
+        "iso2": "AX",
+        "numeric_code": "248",
+        "phonecode": "358",
+        "capital": "Mariehamn",
+        "currency": "EUR",
+        "currency_name": "Euro",
+        "currency_symbol": "€",
+        "tld": ".ax",
+        "native": "Åland",
+        "population": 30654,
+        "gdp": null,
+        "region": "Europe",
+        "region_id": 4,
+        "subregion": "Northern Europe",
+        "subregion_id": 18,
+        "nationality": "Aland Island",
+        "timezones": [
+            {
+                "zoneName": "Europe\/Mariehamn",
+                "gmtOffset": 7200,
+                "gmtOffsetName": "UTC+02:00",
+                "abbreviation": "EET",
+                "tzName": "Eastern European Time"
+            }
+        ],
+        "translations": {
+            "br": "Åland",
+            "ko": "올란드 제도",
+            "pt-BR": "Ilhas de Aland",
+            "pt": "Ilhas de Aland",
+            "nl": "Ålandeilanden",
+            "hr": "Ålandski otoci",
+            "fa": "جزایر الند",
+            "de": "Åland",
+            "es": "Alandia",
+            "fr": "Åland",
+            "ja": "オーランド諸島",
+            "it": "Isole Aland",
+            "zh-CN": "奥兰群岛",
+            "tr": "Åland Adalari",
+            "ru": "Аландские острова",
+            "uk": "Аландські острови",
+            "pl": "Wyspy Alandzkie",
+            "hi": "अलैंड आइलैंड्स",
+            "ar": "جزر آلاند"
+        },
+        "latitude": "60.11666700",
+        "longitude": "19.90000000",
+        "emoji": "🇦🇽",
+        "emojiU": "U+1F1E6 U+1F1FD",
+        "states": [
+            {
+                "id": 5298,
+                "name": "Brändö",
+                "iso2": "12",
+                "iso3166_2": "AX-12",
+                "native": "Brändö",
+                "latitude": "60.41358730",
+                "longitude": "21.04404980",
+                "type": "municipality",
+                "timezone": "Europe\/Mariehamn",
+                "cities": []
+            },
+            {
+                "id": 5294,
+                "name": "Eckerö",
+                "iso2": "08",
+                "iso3166_2": "AX-08",
+                "native": "Eckerö",
+                "latitude": "60.22318140",
+                "longitude": "19.53893790",
+                "type": "municipality",
+                "timezone": "Europe\/Mariehamn",
+                "cities": []
+            },
+            {
+                "id": 5289,
+                "name": "Finström",
+                "iso2": "03",
+                "iso3166_2": "AX-03",
+                "native": "Finström",
+                "latitude": "60.23105190",
+                "longitude": "19.98672590",
+                "type": "municipality",
+                "timezone": "Europe\/Mariehamn",
+                "cities": []
+            },
+            {
+                "id": 5295,
+                "name": "Föglö",
+                "iso2": "09",
+                "iso3166_2": "AX-09",
+                "native": "Föglö",
+                "latitude": "60.01073250",
+                "longitude": "20.42469970",
+                "type": "municipality",
+                "timezone": "Europe\/Mariehamn",
+                "cities": []
+            },
+            {
+                "id": 5296,
+                "name": "Geta",
+                "iso2": "10",
+                "iso3166_2": "AX-10",
+                "native": "Geta",
+                "latitude": "60.37401570",
+                "longitude": "19.84981280",
+                "type": "municipality",
+                "timezone": "Europe\/Mariehamn",
+                "cities": []
+            },
+            {
+                "id": 5292,
+                "name": "Hammarland",
+                "iso2": "06",
+                "iso3166_2": "AX-06",
+                "native": "Hammarland",
+                "latitude": "60.21967580",
+                "longitude": "19.73784810",
+                "type": "municipality",
+                "timezone": "Europe\/Mariehamn",
+                "cities": []
+            },
+            {
+                "id": 5288,
+                "name": "Jomala",
+                "iso2": "02",
+                "iso3166_2": "AX-02",
+                "native": "Jomala",
+                "latitude": "60.15229470",
+                "longitude": "19.94891440",
+                "type": "municipality",
+                "timezone": "Europe\/Mariehamn",
+                "cities": [
+                    {
+                        "id": 160431,
+                        "name": "Bomarsund",
+                        "latitude": "60.21234000",
+                        "longitude": "20.24023000",
+                        "timezone": "Europe\/Mariehamn"
+                    },
+                    {
+                        "id": 160427,
+                        "name": "Finström",
+                        "latitude": "60.26667000",
+                        "longitude": "19.93333000",
+                        "timezone": "Europe\/Mariehamn"
+                    },
+                    {
+                        "id": 160432,
+                        "name": "Godby",
+                        "latitude": "60.22995000",
+                        "longitude": "19.98810000",
+                        "timezone": "Europe\/Mariehamn"
+                    },
+                    {
+                        "id": 160428,
+                        "name": "Hammarland",
+                        "latitude": "60.21667000",
+                        "longitude": "19.75000000",
+                        "timezone": "Europe\/Mariehamn"
+                    },
+                    {
+                        "id": 160429,
+                        "name": "Jomala",
+                        "latitude": "60.14902000",
+                        "longitude": "19.95100000",
+                        "timezone": "Europe\/Mariehamn"
+                    },
+                    {
+                        "id": 160433,
+                        "name": "Lemland",
+                        "latitude": "60.07178000",
+                        "longitude": "20.08472000",
+                        "timezone": "Europe\/Mariehamn"
+                    },
+                    {
+                        "id": 160434,
+                        "name": "Saltvik",
+                        "latitude": "60.28333000",
+                        "longitude": "20.05000000",
+                        "timezone": "Europe\/Mariehamn"
+                    },
+                    {
+                        "id": 160435,
+                        "name": "Sund",
+                        "latitude": "60.25000000",
+                        "longitude": "20.11667000",
+                        "timezone": "Europe\/Mariehamn"
+                    },
+                    {
+                        "id": 160430,
+                        "name": "Tjudö",
+                        "latitude": "60.33333000",
+                        "longitude": "19.95000000",
+                        "timezone": "Europe\/Mariehamn"
+                    },
+                    {
+                        "id": 160426,
+                        "name": "Yomala",
+                        "latitude": "60.16689000",
+                        "longitude": "19.93341000",
+                        "timezone": "Europe\/Mariehamn"
+                    },
+                    {
+                        "id": 160436,
+                        "name": "Ytterby",
+                        "latitude": "60.16667000",
+                        "longitude": "20.01667000",
+                        "timezone": "Europe\/Mariehamn"
+                    }
+                ]
+            },
+            {
+                "id": 5301,
+                "name": "Kökar",
+                "iso2": "15",
+                "iso3166_2": "AX-15",
+                "native": "Kökar",
+                "latitude": "59.92117090",
+                "longitude": "20.91035140",
+                "type": "municipality",
+                "timezone": "Europe\/Mariehamn",
+                "cities": []
+            },
+            {
+                "id": 5300,
+                "name": "Kumlinge",
+                "iso2": "14",
+                "iso3166_2": "AX-14",
+                "native": "Kumlinge",
+                "latitude": "60.25876930",
+                "longitude": "20.77822920",
+                "type": "municipality",
+                "timezone": "Europe\/Mariehamn",
+                "cities": []
+            },
+            {
+                "id": 5290,
+                "name": "Lemland",
+                "iso2": "04",
+                "iso3166_2": "AX-04",
+                "native": "Lemland",
+                "latitude": "60.06901690",
+                "longitude": "20.08600810",
+                "type": "municipality",
+                "timezone": "Europe\/Mariehamn",
+                "cities": []
+            },
+            {
+                "id": 5299,
+                "name": "Lumparland",
+                "iso2": "13",
+                "iso3166_2": "AX-13",
+                "native": "Lumparland",
+                "latitude": "60.11683850",
+                "longitude": "20.26105830",
+                "type": "municipality",
+                "timezone": "Europe\/Mariehamn",
+                "cities": []
+            },
+            {
+                "id": 5287,
+                "name": "Mariehamn",
+                "iso2": "01",
+                "iso3166_2": "AX-01",
+                "native": "Mariehamn",
+                "latitude": "60.10242300",
+                "longitude": "19.94126000",
+                "type": "municipality",
+                "timezone": "Europe\/Mariehamn",
+                "cities": [
+                    {
+                        "id": 160425,
+                        "name": "Mariehamn",
+                        "latitude": "60.09726000",
+                        "longitude": "19.93481000",
+                        "timezone": "Europe\/Mariehamn"
+                    }
+                ]
+            },
+            {
+                "id": 5291,
+                "name": "Saltvik",
+                "iso2": "05",
+                "iso3166_2": "AX-05",
+                "native": "Saltvik",
+                "latitude": "60.27557560",
+                "longitude": "20.06120650",
+                "type": "municipality",
+                "timezone": "Europe\/Mariehamn",
+                "cities": []
+            },
+            {
+                "id": 5302,
+                "name": "Sottunga",
+                "iso2": "16",
+                "iso3166_2": "AX-16",
+                "native": "Sot",
+                "latitude": "60.13079770",
+                "longitude": "20.64598210",
+                "type": "municipality",
+                "timezone": "Europe\/Mariehamn",
+                "cities": []
+            },
+            {
+                "id": 5293,
+                "name": "Sund",
+                "iso2": "07",
+                "iso3166_2": "AX-07",
+                "native": "Hälsosam",
+                "latitude": "60.25303320",
+                "longitude": "20.11986370",
+                "type": "municipality",
+                "timezone": "Europe\/Mariehamn",
+                "cities": []
+            },
+            {
+                "id": 5297,
+                "name": "Vårdö",
+                "iso2": "11",
+                "iso3166_2": "AX-11",
+                "native": "Vårdö",
+                "latitude": "60.24216920",
+                "longitude": "20.37442610",
+                "type": "municipality",
+                "timezone": "Europe\/Mariehamn",
+                "cities": []
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Albania",
+        "iso3": "ALB",
+        "iso2": "AL",
+        "numeric_code": "008",
+        "phonecode": "355",
+        "capital": "Tirana",
+        "currency": "ALL",
+        "currency_name": "Albanian lek",
+        "currency_symbol": "Lek",
+        "tld": ".al",
+        "native": "Shqipëria",
+        "population": 2363314,
+        "gdp": 28372,
+        "region": "Europe",
+        "region_id": 4,
+        "subregion": "Southern Europe",
+        "subregion_id": 16,
+        "nationality": "Albanian ",
+        "timezones": [
+            {
+                "zoneName": "Europe\/Tirane",
+                "gmtOffset": 3600,
+                "gmtOffsetName": "UTC+01:00",
+                "abbreviation": "CET",
+                "tzName": "Central European Time"
+            }
+        ],
+        "translations": {
+            "br": "Albania",
+            "ko": "알바니아",
+            "pt-BR": "Albânia",
+            "pt": "Albânia",
+            "nl": "Albanië",
+            "hr": "Albanija",
+            "fa": "آلبانی",
+            "de": "Albanien",
+            "es": "Albania",
+            "fr": "Albanie",
+            "ja": "アルバニア",
+            "it": "Albania",
+            "zh-CN": "阿尔巴尼亚",
+            "tr": "Arnavutluk",
+            "ru": "Албания",
+            "uk": "Албанія",
+            "pl": "Albania",
+            "hi": "अल्बानिया",
+            "ar": "ألبانيا"
+        },
+        "latitude": "41.00000000",
+        "longitude": "20.00000000",
+        "emoji": "🇦🇱",
+        "emojiU": "U+1F1E6 U+1F1F1",
+        "states": [
+            {
+                "id": 603,
+                "name": "Berat",
+                "iso2": "01",
+                "iso3166_2": "AL-01",
+                "native": "I rëndë",
+                "latitude": "40.70186360",
+                "longitude": "19.95807580",
+                "type": "county",
+                "timezone": "Europe\/Tirane",
+                "cities": [
+                    {
+                        "id": 153,
+                        "name": "Banaj",
+                        "latitude": "40.82492000",
+                        "longitude": "19.84074000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 154,
+                        "name": "Bashkia Berat",
+                        "latitude": "40.69997000",
+                        "longitude": "19.94983000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 170,
+                        "name": "Bashkia Kuçovë",
+                        "latitude": "40.82489000",
+                        "longitude": "19.95350000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 180,
+                        "name": "Bashkia Poliçan",
+                        "latitude": "40.58608000",
+                        "longitude": "20.04535000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 186,
+                        "name": "Bashkia Skrapar",
+                        "latitude": "40.56036000",
+                        "longitude": "20.25477000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 191,
+                        "name": "Berat",
+                        "latitude": "40.70583000",
+                        "longitude": "19.95222000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 280,
+                        "name": "Çorovodë",
+                        "latitude": "40.50417000",
+                        "longitude": "20.22722000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 219,
+                        "name": "Kuçovë",
+                        "latitude": "40.80028000",
+                        "longitude": "19.91667000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 238,
+                        "name": "Poliçan",
+                        "latitude": "40.61222000",
+                        "longitude": "20.09806000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 242,
+                        "name": "Rrethi i Beratit",
+                        "latitude": "40.66667000",
+                        "longitude": "20.00000000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 253,
+                        "name": "Rrethi i Kuçovës",
+                        "latitude": "40.83333000",
+                        "longitude": "19.91667000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 258,
+                        "name": "Rrethi i Skraparit",
+                        "latitude": "40.55000000",
+                        "longitude": "20.26667000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 157044,
+                        "name": "Skrapar",
+                        "latitude": "40.54071390",
+                        "longitude": "20.10188400",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 273,
+                        "name": "Ura Vajgurore",
+                        "latitude": "40.76889000",
+                        "longitude": "19.87778000",
+                        "timezone": "Europe\/Tirane"
+                    }
+                ]
+            },
+            {
+                "id": 610,
+                "name": "Dibër",
+                "iso2": "09",
+                "iso3166_2": "AL-09",
+                "native": "Dibër",
+                "latitude": "41.62219200",
+                "longitude": "20.18081600",
+                "type": "county",
+                "timezone": "Europe\/Tirane",
+                "cities": [
+                    {
+                        "id": 155,
+                        "name": "Bashkia Bulqizë",
+                        "latitude": "41.47152000",
+                        "longitude": "20.33192000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 165,
+                        "name": "Bashkia Klos",
+                        "latitude": "41.50826000",
+                        "longitude": "20.07107000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 176,
+                        "name": "Bashkia Mat",
+                        "latitude": "41.63317000",
+                        "longitude": "20.01228000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 193,
+                        "name": "Bulqizë",
+                        "latitude": "41.49167000",
+                        "longitude": "20.22194000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 194,
+                        "name": "Burrel",
+                        "latitude": "41.61028000",
+                        "longitude": "20.00889000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 157052,
+                        "name": "Dibër",
+                        "latitude": "41.73099090",
+                        "longitude": "20.18908580",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 209,
+                        "name": "Klos",
+                        "latitude": "41.50694000",
+                        "longitude": "20.08667000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 157055,
+                        "name": "Mat",
+                        "latitude": "41.63648120",
+                        "longitude": "19.84055600",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 236,
+                        "name": "Peshkopi",
+                        "latitude": "41.68500000",
+                        "longitude": "20.42889000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 243,
+                        "name": "Rrethi i Bulqizës",
+                        "latitude": "41.50000000",
+                        "longitude": "20.33333000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 246,
+                        "name": "Rrethi i Dibrës",
+                        "latitude": "41.75000000",
+                        "longitude": "20.33333000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 256,
+                        "name": "Rrethi i Matit",
+                        "latitude": "41.58333000",
+                        "longitude": "20.08333000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 272,
+                        "name": "Ulëz",
+                        "latitude": "41.68278000",
+                        "longitude": "19.89333000",
+                        "timezone": "Europe\/Tirane"
+                    }
+                ]
+            },
+            {
+                "id": 632,
+                "name": "Durrës",
+                "iso2": "02",
+                "iso3166_2": "AL-02",
+                "native": "Durrës",
+                "latitude": "41.42798630",
+                "longitude": "19.53733720",
+                "type": "county",
+                "timezone": "Europe\/Tirane",
+                "cities": [
+                    {
+                        "id": 159,
+                        "name": "Bashkia Durrës",
+                        "latitude": "41.42743000",
+                        "longitude": "19.48690000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 168,
+                        "name": "Bashkia Krujë",
+                        "latitude": "41.50091000",
+                        "longitude": "19.72571000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 185,
+                        "name": "Bashkia Shijak",
+                        "latitude": "41.33558000",
+                        "longitude": "19.58977000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 157045,
+                        "name": "Durrës",
+                        "latitude": "41.33139290",
+                        "longitude": "19.42515790",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 198,
+                        "name": "Durrës District",
+                        "latitude": "41.31660000",
+                        "longitude": "19.45000000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 203,
+                        "name": "Fushë-Krujë",
+                        "latitude": "41.47833000",
+                        "longitude": "19.71778000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 214,
+                        "name": "Krujë",
+                        "latitude": "41.50917000",
+                        "longitude": "19.79278000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 250,
+                        "name": "Rrethi i Krujës",
+                        "latitude": "41.55000000",
+                        "longitude": "19.75000000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 265,
+                        "name": "Shijak",
+                        "latitude": "41.34556000",
+                        "longitude": "19.56722000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 269,
+                        "name": "Sukth",
+                        "latitude": "41.38056000",
+                        "longitude": "19.53778000",
+                        "timezone": "Europe\/Tirane"
+                    }
+                ]
+            },
+            {
+                "id": 598,
+                "name": "Elbasan",
+                "iso2": "03",
+                "iso3166_2": "AL-03",
+                "native": "Elbasan",
+                "latitude": "41.05108290",
+                "longitude": "20.13985260",
+                "type": "county",
+                "timezone": "Europe\/Tirane",
+                "cities": [
+                    {
+                        "id": 157048,
+                        "name": "Gramsh",
+                        "latitude": "40.86614460",
+                        "longitude": "20.17637010",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 157046,
+                        "name": "Librazhd",
+                        "latitude": "41.18323980",
+                        "longitude": "20.30362480",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 157047,
+                        "name": "Peqin",
+                        "latitude": "41.04641030",
+                        "longitude": "19.74050040",
+                        "timezone": "Europe\/Tirane"
+                    }
+                ]
+            },
+            {
+                "id": 631,
+                "name": "Fier",
+                "iso2": "04",
+                "iso3166_2": "AL-04",
+                "native": "Hekuros",
+                "latitude": "40.91913920",
+                "longitude": "19.66393090",
+                "type": "county",
+                "timezone": "Europe\/Tirane",
+                "cities": [
+                    {
+                        "id": 152,
+                        "name": "Ballsh",
+                        "latitude": "40.59889000",
+                        "longitude": "19.73472000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 157,
+                        "name": "Bashkia Divjakë",
+                        "latitude": "40.95716000",
+                        "longitude": "19.52364000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 160,
+                        "name": "Bashkia Fier",
+                        "latitude": "40.72937000",
+                        "longitude": "19.48690000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 174,
+                        "name": "Bashkia Mallakastër",
+                        "latitude": "40.55669000",
+                        "longitude": "19.77347000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 179,
+                        "name": "Bashkia Patos",
+                        "latitude": "40.67793000",
+                        "longitude": "19.65591000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 196,
+                        "name": "Divjakë",
+                        "latitude": "40.99667000",
+                        "longitude": "19.52944000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 200,
+                        "name": "Fier",
+                        "latitude": "40.72389000",
+                        "longitude": "19.55611000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 201,
+                        "name": "Fier-Çifçi",
+                        "latitude": "40.71667000",
+                        "longitude": "19.56667000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 227,
+                        "name": "Lushnjë",
+                        "latitude": "40.94194000",
+                        "longitude": "19.70500000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 157057,
+                        "name": "Mallakastër",
+                        "latitude": "40.54335440",
+                        "longitude": "19.62480730",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 234,
+                        "name": "Patos",
+                        "latitude": "40.68333000",
+                        "longitude": "19.61944000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 235,
+                        "name": "Patos Fshat",
+                        "latitude": "40.64278000",
+                        "longitude": "19.65083000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 241,
+                        "name": "Roskovec",
+                        "latitude": "40.73750000",
+                        "longitude": "19.70222000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 254,
+                        "name": "Rrethi i Mallakastrës",
+                        "latitude": "40.55000000",
+                        "longitude": "19.78333000",
+                        "timezone": "Europe\/Tirane"
+                    }
+                ]
+            },
+            {
+                "id": 604,
+                "name": "Gjirokastër",
+                "iso2": "05",
+                "iso3166_2": "AL-05",
+                "native": "Gjirokastër",
+                "latitude": "40.07708710",
+                "longitude": "20.13933590",
+                "type": "county",
+                "timezone": "Europe\/Tirane",
+                "cities": [
+                    {
+                        "id": 164,
+                        "name": "Bashkia Kelcyrë",
+                        "latitude": "40.36196000",
+                        "longitude": "20.16476000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 172,
+                        "name": "Bashkia Libohovë",
+                        "latitude": "40.10754000",
+                        "longitude": "20.25753000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 177,
+                        "name": "Bashkia Memaliaj",
+                        "latitude": "40.41524000",
+                        "longitude": "19.96911000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 183,
+                        "name": "Bashkia Përmet",
+                        "latitude": "40.23246000",
+                        "longitude": "20.41091000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 187,
+                        "name": "Bashkia Tepelenë",
+                        "latitude": "40.26736000",
+                        "longitude": "19.97003000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 158,
+                        "name": "Dropull",
+                        "latitude": "39.98584000",
+                        "longitude": "20.30529000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 204,
+                        "name": "Gjinkar",
+                        "latitude": "40.19944000",
+                        "longitude": "20.40611000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 205,
+                        "name": "Gjirokastër",
+                        "latitude": "40.07583000",
+                        "longitude": "20.13889000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 220,
+                        "name": "Këlcyrë",
+                        "latitude": "40.31306000",
+                        "longitude": "20.18944000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 221,
+                        "name": "Lazarat",
+                        "latitude": "40.04667000",
+                        "longitude": "20.14750000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 225,
+                        "name": "Libohovë",
+                        "latitude": "40.03111000",
+                        "longitude": "20.26306000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 231,
+                        "name": "Memaliaj",
+                        "latitude": "40.35167000",
+                        "longitude": "19.98028000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 240,
+                        "name": "Përmet",
+                        "latitude": "40.23361000",
+                        "longitude": "20.35167000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 270,
+                        "name": "Tepelenë",
+                        "latitude": "40.29583000",
+                        "longitude": "20.01917000",
+                        "timezone": "Europe\/Tirane"
+                    }
+                ]
+            },
+            {
+                "id": 630,
+                "name": "Korçë",
+                "iso2": "06",
+                "iso3166_2": "AL-06",
+                "native": "Korçë",
+                "latitude": "40.58587530",
+                "longitude": "20.73613150",
+                "type": "county",
+                "timezone": "Europe\/Tirane",
+                "cities": [
+                    {
+                        "id": 156,
+                        "name": "Bashkia Devoll",
+                        "latitude": "40.60078000",
+                        "longitude": "20.93814000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 166,
+                        "name": "Bashkia Kolonjë",
+                        "latitude": "40.31420000",
+                        "longitude": "20.61482000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 173,
+                        "name": "Bashkia Maliq",
+                        "latitude": "40.75508000",
+                        "longitude": "20.60748000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 192,
+                        "name": "Bilisht",
+                        "latitude": "40.62750000",
+                        "longitude": "20.99000000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 157050,
+                        "name": "Devoll",
+                        "latitude": "40.58998300",
+                        "longitude": "20.74813130",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 199,
+                        "name": "Ersekë",
+                        "latitude": "40.33778000",
+                        "longitude": "20.67889000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 157054,
+                        "name": "Kolonjë",
+                        "latitude": "40.28305450",
+                        "longitude": "20.45647260",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 212,
+                        "name": "Korçë",
+                        "latitude": "40.61861000",
+                        "longitude": "20.78083000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 223,
+                        "name": "Leskovik",
+                        "latitude": "40.15139000",
+                        "longitude": "20.59722000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 226,
+                        "name": "Libonik",
+                        "latitude": "40.70444000",
+                        "longitude": "20.70861000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 228,
+                        "name": "Maliq",
+                        "latitude": "40.70583000",
+                        "longitude": "20.69972000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 230,
+                        "name": "Mborje",
+                        "latitude": "40.60333000",
+                        "longitude": "20.80306000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 237,
+                        "name": "Pogradec",
+                        "latitude": "40.90250000",
+                        "longitude": "20.65250000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 182,
+                        "name": "Pustec",
+                        "latitude": "40.83591000",
+                        "longitude": "20.89405000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 245,
+                        "name": "Rrethi i Devollit",
+                        "latitude": "40.58333000",
+                        "longitude": "20.91667000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 249,
+                        "name": "Rrethi i Kolonjës",
+                        "latitude": "40.25000000",
+                        "longitude": "20.66667000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 275,
+                        "name": "Velçan",
+                        "latitude": "40.95472000",
+                        "longitude": "20.46222000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 278,
+                        "name": "Voskopojë",
+                        "latitude": "40.63306000",
+                        "longitude": "20.58889000",
+                        "timezone": "Europe\/Tirane"
+                    }
+                ]
+            },
+            {
+                "id": 601,
+                "name": "Kukës",
+                "iso2": "07",
+                "iso3166_2": "AL-07",
+                "native": "Kukës",
+                "latitude": "42.18856640",
+                "longitude": "20.37696330",
+                "type": "county",
+                "timezone": "Europe\/Tirane",
+                "cities": [
+                    {
+                        "id": 151,
+                        "name": "Bajram Curri",
+                        "latitude": "42.35734000",
+                        "longitude": "20.07679000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 215,
+                        "name": "Krumë",
+                        "latitude": "42.19694000",
+                        "longitude": "20.41333000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 217,
+                        "name": "Kukës",
+                        "latitude": "42.07694000",
+                        "longitude": "20.42194000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 247,
+                        "name": "Rrethi i Hasit",
+                        "latitude": "42.16667000",
+                        "longitude": "20.33333000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 251,
+                        "name": "Rrethi i Kukësit",
+                        "latitude": "42.00000000",
+                        "longitude": "20.33333000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 157056,
+                        "name": "Tropojë",
+                        "latitude": "42.37624000",
+                        "longitude": "19.74539290",
+                        "timezone": "Europe\/Tirane"
+                    }
+                ]
+            },
+            {
+                "id": 609,
+                "name": "Lezhë",
+                "iso2": "08",
+                "iso3166_2": "AL-08",
+                "native": "Lezhë",
+                "latitude": "41.78137590",
+                "longitude": "19.80679160",
+                "type": "county",
+                "timezone": "Europe\/Tirane",
+                "cities": [
+                    {
+                        "id": 169,
+                        "name": "Bashkia Kurbin",
+                        "latitude": "41.62215000",
+                        "longitude": "19.70734000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 171,
+                        "name": "Bashkia Lezhë",
+                        "latitude": "41.81320000",
+                        "longitude": "19.64121000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 178,
+                        "name": "Bashkia Mirditë",
+                        "latitude": "41.80953000",
+                        "longitude": "19.99024000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 157051,
+                        "name": "Kurbin",
+                        "latitude": "41.63891890",
+                        "longitude": "19.69333630",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 218,
+                        "name": "Kurbnesh",
+                        "latitude": "41.77972000",
+                        "longitude": "20.08361000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 222,
+                        "name": "Laç",
+                        "latitude": "41.63556000",
+                        "longitude": "19.71306000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 224,
+                        "name": "Lezhë",
+                        "latitude": "41.78361000",
+                        "longitude": "19.64361000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 229,
+                        "name": "Mamurras",
+                        "latitude": "41.57750000",
+                        "longitude": "19.69222000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 232,
+                        "name": "Milot",
+                        "latitude": "41.68389000",
+                        "longitude": "19.71556000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 157049,
+                        "name": "Mirditë",
+                        "latitude": "41.86072800",
+                        "longitude": "19.66757220",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 261,
+                        "name": "Rrëshen",
+                        "latitude": "41.76750000",
+                        "longitude": "19.87556000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 252,
+                        "name": "Rrethi i Kurbinit",
+                        "latitude": "41.63333000",
+                        "longitude": "19.71667000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 262,
+                        "name": "Rubik",
+                        "latitude": "41.77444000",
+                        "longitude": "19.78611000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 267,
+                        "name": "Shëngjin",
+                        "latitude": "41.81361000",
+                        "longitude": "19.59389000",
+                        "timezone": "Europe\/Tirane"
+                    }
+                ]
+            },
+            {
+                "id": 611,
+                "name": "Shkodër",
+                "iso2": "10",
+                "iso3166_2": "AL-10",
+                "native": "Shkodër",
+                "latitude": "42.25076770",
+                "longitude": "19.59597230",
+                "type": "county",
+                "timezone": "Europe\/Tirane",
+                "cities": [
+                    {
+                        "id": 175,
+                        "name": "Bashkia Malësi e Madhe",
+                        "latitude": "42.36798000",
+                        "longitude": "19.58977000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 181,
+                        "name": "Bashkia Pukë",
+                        "latitude": "42.02997000",
+                        "longitude": "19.92778000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 188,
+                        "name": "Bashkia Vau i Dejës",
+                        "latitude": "42.04834000",
+                        "longitude": "19.69999000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 202,
+                        "name": "Fushë-Arrëz",
+                        "latitude": "42.06222000",
+                        "longitude": "20.01667000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 211,
+                        "name": "Koplik",
+                        "latitude": "42.21361000",
+                        "longitude": "19.43639000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 157053,
+                        "name": "Malësi e Madhe",
+                        "latitude": "42.39016310",
+                        "longitude": "19.19918420",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 239,
+                        "name": "Pukë",
+                        "latitude": "42.04444000",
+                        "longitude": "19.89972000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 255,
+                        "name": "Rrethi i Malësia e Madhe",
+                        "latitude": "42.33333000",
+                        "longitude": "19.58333000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 257,
+                        "name": "Rrethi i Shkodrës",
+                        "latitude": "42.06917000",
+                        "longitude": "19.53506000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 266,
+                        "name": "Shkodër",
+                        "latitude": "42.06828000",
+                        "longitude": "19.51258000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 274,
+                        "name": "Vau i Dejës",
+                        "latitude": "42.01000000",
+                        "longitude": "19.62472000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 279,
+                        "name": "Vukatanë",
+                        "latitude": "42.02806000",
+                        "longitude": "19.54778000",
+                        "timezone": "Europe\/Tirane"
+                    }
+                ]
+            },
+            {
+                "id": 615,
+                "name": "Tirana",
+                "iso2": "11",
+                "iso3166_2": "AL-11",
+                "native": "Tiranë",
+                "latitude": "41.25844780",
+                "longitude": "19.83026560",
+                "type": "county",
+                "timezone": "Europe\/Tirane",
+                "cities": [
+                    {
+                        "id": 163,
+                        "name": "Bashkia Kavajë",
+                        "latitude": "41.18127000",
+                        "longitude": "19.55579000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 190,
+                        "name": "Bashkia Vorë",
+                        "latitude": "41.39804000",
+                        "longitude": "19.67703000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 207,
+                        "name": "Kamëz",
+                        "latitude": "41.38167000",
+                        "longitude": "19.76028000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 208,
+                        "name": "Kavajë",
+                        "latitude": "41.18556000",
+                        "longitude": "19.55694000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 213,
+                        "name": "Krrabë",
+                        "latitude": "41.21556000",
+                        "longitude": "19.97139000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 248,
+                        "name": "Rrethi i Kavajës",
+                        "latitude": "41.16667000",
+                        "longitude": "19.58333000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 259,
+                        "name": "Rrethi i Tiranës",
+                        "latitude": "41.33333000",
+                        "longitude": "19.91667000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 260,
+                        "name": "Rrogozhinë",
+                        "latitude": "41.07639000",
+                        "longitude": "19.66528000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 268,
+                        "name": "Sinaballaj",
+                        "latitude": "41.06889000",
+                        "longitude": "19.69944000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 271,
+                        "name": "Tirana",
+                        "latitude": "41.32750000",
+                        "longitude": "19.81889000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 277,
+                        "name": "Vorë",
+                        "latitude": "41.39083000",
+                        "longitude": "19.65500000",
+                        "timezone": "Europe\/Tirane"
+                    }
+                ]
+            },
+            {
+                "id": 634,
+                "name": "Vlorë",
+                "iso2": "12",
+                "iso3166_2": "AL-12",
+                "native": "Vlorë",
+                "latitude": "40.15009600",
+                "longitude": "19.80679160",
+                "type": "county",
+                "timezone": "Europe\/Tirane",
+                "cities": [
+                    {
+                        "id": 162,
+                        "name": "Bashkia Himarë",
+                        "latitude": "40.11581000",
+                        "longitude": "19.81389000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 167,
+                        "name": "Bashkia Konispol",
+                        "latitude": "39.70064000",
+                        "longitude": "20.13353000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 184,
+                        "name": "Bashkia Selenicë",
+                        "latitude": "40.39503000",
+                        "longitude": "19.65958000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 189,
+                        "name": "Bashkia Vlorë",
+                        "latitude": "40.41340000",
+                        "longitude": "19.49792000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 195,
+                        "name": "Delvinë",
+                        "latitude": "39.95111000",
+                        "longitude": "20.09778000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 161,
+                        "name": "Finiq",
+                        "latitude": "39.84393000",
+                        "longitude": "20.16659000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 206,
+                        "name": "Himarë",
+                        "latitude": "40.10167000",
+                        "longitude": "19.74472000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 210,
+                        "name": "Konispol",
+                        "latitude": "39.65889000",
+                        "longitude": "20.18139000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 216,
+                        "name": "Ksamil",
+                        "latitude": "39.76889000",
+                        "longitude": "19.99972000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 233,
+                        "name": "Orikum",
+                        "latitude": "40.32528000",
+                        "longitude": "19.47139000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 244,
+                        "name": "Rrethi i Delvinës",
+                        "latitude": "39.91667000",
+                        "longitude": "20.08333000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 263,
+                        "name": "Sarandë",
+                        "latitude": "39.87534000",
+                        "longitude": "20.00477000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 264,
+                        "name": "Selenicë",
+                        "latitude": "40.53056000",
+                        "longitude": "19.63583000",
+                        "timezone": "Europe\/Tirane"
+                    },
+                    {
+                        "id": 276,
+                        "name": "Vlorë",
+                        "latitude": "40.46860000",
+                        "longitude": "19.48318000",
+                        "timezone": "Europe\/Tirane"
+                    }
+                ]
+            }
+        ]
+    },

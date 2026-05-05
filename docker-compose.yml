@@ -10,6 +10,39 @@ volumes:
   minio_data:
 
 services:
+  app:
+    build: ./services/app-laravel
+    container_name: ocr-app
+    restart: unless-stopped
+    environment:
+      APP_NAME: "OpenChildRisk OS"
+      APP_ENV: local
+      APP_DEBUG: "true"
+      APP_URL: http://localhost:8000
+      DB_CONNECTION: pgsql
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_DATABASE: ${DB_DATABASE}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      QUEUE_CONNECTION: redis
+      CACHE_STORE: redis
+      SESSION_DRIVER: redis
+      RISK_ENGINE_URL: http://risk-engine:8001
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      risk-engine:
+        condition: service_started
+    networks:
+      - ocr-network
+
   risk-engine:
     build: ./services/risk-engine-python
     container_name: ocr-risk-engine

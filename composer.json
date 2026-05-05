@@ -1,6 +1,0 @@
-{
-    "require": {
-        "spatie/laravel-permission": "^7.4",
-        "spatie/laravel-activitylog": "^4.12"
-    }
-}

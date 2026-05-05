@@ -1,0 +1,31 @@
+{
+  "_meta": {
+    "language": "English",
+    "code": "en",
+    "direction": "ltr",
+    "version": "1.0.0",
+    "last_updated": "2026-05-04"
+  },
+
+  "service": {
+    "name":        "OpenChildRisk OS",
+    "description": "Child climate risk intelligence platform",
+    "status_ok":   "Service operational",
+    "status_down": "Service unavailable"
+  },
+
+  "errors": {
+    "district_not_found":  "District not found",
+    "invalid_input":       "Invalid input data",
+    "scoring_failed":      "Risk scoring failed",
+    "connection_failed":   "Service connection failed",
+    "unauthorized":        "Unauthorized access",
+    "not_found":           "Resource not found"
+  },
+
+  "validation": {
+    "required":            "{field} is required",
+    "invalid_range":       "{field} must be between {min} and {max}",
+    "invalid_type":        "{field} must be a {type}"
+  }
+}

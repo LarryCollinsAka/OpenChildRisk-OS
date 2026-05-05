@@ -1,0 +1,81 @@
+{
+  "_meta": {
+    "language": "Français",
+    "code": "fr",
+    "direction": "ltr",
+    "version": "1.0.0",
+    "last_updated": "2026-05-04",
+    "translators": ["OpenChildRisk OS Team"],
+    "notes": "Primary language for Cameroon, DRC, West Africa, UNICEF HQ"
+  },
+
+  "risk_levels": {
+    "HIGH":     "ÉLEVÉ",
+    "MEDIUM":   "MODÉRÉ",
+    "LOW":      "FAIBLE",
+    "CRITICAL": "CRITIQUE",
+    "UNKNOWN":  "INCONNU"
+  },
+
+  "hazard_types": {
+    "cholera":       "Choléra",
+    "heat":          "Vague de chaleur",
+    "flood":         "Inondation",
+    "drought":       "Sécheresse",
+    "air_pollution": "Pollution de l'air",
+    "malnutrition":  "Malnutrition aiguë",
+    "measles":       "Épidémie de rougeole",
+    "conflict":      "Conflit armé",
+    "displacement":  "Déplacement massif",
+    "compound":      "Crise complexe"
+  },
+
+  "alert_messages": {
+    "HIGH":   "Risque {risk_type} détecté. {children_at_risk} enfants en danger. {action}",
+    "MEDIUM": "Risque modéré de {risk_type}. {children_at_risk} enfants potentiellement affectés. {action}",
+    "LOW":    "Risque faible de {risk_type} à {district}. Surveillance de routine recommandée."
+  },
+
+  "actions": {
+    "cholera": {
+      "HIGH":   "Prépositionnez les SRO dans tous les centres de santé. Alertez les ASC immédiatement. Activez la chloration de l'eau. Informez l'officier de santé du district.",
+      "MEDIUM": "Augmentez les visites de surveillance des ASC. Vérifiez et traitez les sources d'eau. Assurez-vous que les stocks de SRO sont suffisants.",
+      "LOW":    "Maintenez la surveillance de routine. Aucune action immédiate requise."
+    },
+    "heat": {
+      "HIGH":   "Ouvrez des centres de rafraîchissement. Distribuez des sels de réhydratation orale. Alertez les établissements de santé. Suspendez les activités scolaires en plein air.",
+      "MEDIUM": "Augmentez la distribution d'eau. Surveillez les enfants de moins de 5 ans pour détecter une déshydratation. Conseillez aux communautés de limiter l'exposition au soleil.",
+      "LOW":    "Précautions standard contre la chaleur. Surveillez les ménages vulnérables."
+    },
+    "flood": {
+      "HIGH":   "Évacuez les zones inondables. Prépositionnez les fournitures d'urgence. Alertez les écoles et les cliniques. Activez la réponse d'urgence.",
+      "MEDIUM": "Préparez les itinéraires d'évacuation. Stockez les fournitures d'urgence. Surveillez les niveaux d'eau quotidiennement.",
+      "LOW":    "Surveillez les précipitations et les niveaux d'eau. Assurez-vous que les systèmes de drainage sont dégagés."
+    },
+    "malnutrition": {
+      "HIGH":   "Ouvrez des centres d'alimentation thérapeutique. Déployez des équipes de nutrition. Alertez immédiatement le PAM et l'UNICEF.",
+      "MEDIUM": "Augmentez le dépistage MUAC. Distribuez des aliments supplémentaires. Référez immédiatement les cas de MAS.",
+      "LOW":    "Surveillance nutritionnelle de routine. Dépistage MUAC mensuel."
+    }
+  },
+
+  "reasons": {
+    "heavy_rainfall":          "fortes pluies détectées",
+    "low_sanitation":          "couverture d'assainissement critiquement faible",
+    "insufficient_sanitation": "couverture d'assainissement insuffisante",
+    "high_temperature":        "chaleur dangereuse accélérant la propagation des maladies",
+    "flood_conditions":        "conditions d'inondation actives",
+    "drought_conditions":      "conditions de sécheresse détectées",
+    "conflict_displacement":   "déplacement lié au conflit",
+    "moderate_conditions":     "conditions de référence modérées"
+  },
+
+  "system": {
+    "children_at_risk": "{count} enfants de moins de 5 ans en danger",
+    "district_alert":   "Alerte pour {district}",
+    "time_window":      "Fenêtre de risque : {days} prochains jours",
+    "generated_at":     "Généré le : {datetime}",
+    "data_sources":     "Sources de données : {sources}",
+    "confidence":       "Confiance : {percent}%"
+  }
+}

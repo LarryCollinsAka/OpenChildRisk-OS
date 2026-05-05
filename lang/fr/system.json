@@ -1,0 +1,31 @@
+{
+  "_meta": {
+    "language": "Français",
+    "code": "fr",
+    "direction": "ltr",
+    "version": "1.0.0",
+    "last_updated": "2026-05-04"
+  },
+
+  "service": {
+    "name":        "OpenChildRisk OS",
+    "description": "Plateforme de veille climatique pour la protection de l'enfant",
+    "status_ok":   "Service opérationnel",
+    "status_down": "Service indisponible"
+  },
+
+  "errors": {
+    "district_not_found": "District introuvable",
+    "invalid_input":      "Données d'entrée invalides",
+    "scoring_failed":     "Échec du calcul de risque",
+    "connection_failed":  "Échec de connexion au service",
+    "unauthorized":       "Accès non autorisé",
+    "not_found":          "Ressource introuvable"
+  },
+
+  "validation": {
+    "required":      "{field} est requis",
+    "invalid_range": "{field} doit être entre {min} et {max}",
+    "invalid_type":  "{field} doit être de type {type}"
+  }
+}

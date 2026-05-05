@@ -1,0 +1,71 @@
+{
+  "_meta": {
+    "language": "العربية",
+    "code": "ar",
+    "direction": "rtl",
+    "version": "1.0.0",
+    "last_updated": "2026-05-04",
+    "translators": ["OpenChildRisk OS Team"],
+    "notes": "RTL language. Used in Sudan, Chad, Middle East, North Africa"
+  },
+
+  "risk_levels": {
+    "HIGH":     "مرتفع",
+    "MEDIUM":   "متوسط",
+    "LOW":      "منخفض",
+    "CRITICAL": "حرج",
+    "UNKNOWN":  "غير معروف"
+  },
+
+  "hazard_types": {
+    "cholera":       "الكوليرا",
+    "heat":          "موجة حر",
+    "flood":         "فيضان",
+    "drought":       "جفاف",
+    "air_pollution": "تلوث الهواء",
+    "malnutrition":  "سوء التغذية الحاد",
+    "measles":       "تفشي الحصبة",
+    "conflict":      "نزاع مسلح",
+    "displacement":  "نزوح جماعي",
+    "compound":      "أزمة مركبة"
+  },
+
+  "alert_messages": {
+    "HIGH":   "تم رصد خطر {risk_type}. {children_at_risk} طفل في خطر. {action}",
+    "MEDIUM": "خطر معتدل من {risk_type}. {children_at_risk} طفل قد يتأثر. {action}",
+    "LOW":    "خطر منخفض من {risk_type} في {district}. يُنصح بالمراقبة الروتينية."
+  },
+
+  "actions": {
+    "cholera": {
+      "HIGH":   "تجهيز محاليل الإماهة الفموية في جميع المراكز الصحية. تنبيه العمال الصحيين فوراً. تفعيل معالجة المياه بالكلور. إخطار مسؤول صحة المنطقة.",
+      "MEDIUM": "زيادة زيارات المراقبة. فحص مصادر المياه ومعالجتها. التأكد من كفاية مخزون محاليل الإماهة.",
+      "LOW":    "الحفاظ على المراقبة الروتينية. لا حاجة لإجراء فوري."
+    },
+    "malnutrition": {
+      "HIGH":   "افتح مراكز العلاج التغذوي. انشر فرق التغذية. أبلغ برنامج الغذاء العالمي واليونيسف فوراً.",
+      "MEDIUM": "زيادة فحص محيط منتصف الذراع. توزيع الغذاء التكميلي. إحالة حالات سوء التغذية الحاد فوراً.",
+      "LOW":    "مراقبة التغذية الروتينية. فحص شهري لمحيط منتصف الذراع."
+    }
+  },
+
+  "reasons": {
+    "heavy_rainfall":          "رصد هطول أمطار غزيرة",
+    "low_sanitation":          "تغطية صحية منخفضة بشكل حرج",
+    "insufficient_sanitation": "تغطية صحية غير كافية",
+    "high_temperature":        "حرارة خطيرة تسرع انتشار الأمراض",
+    "flood_conditions":        "ظروف فيضانية نشطة",
+    "drought_conditions":      "ظروف جفاف مرصودة",
+    "conflict_displacement":   "نزوح بسبب النزاع",
+    "moderate_conditions":     "ظروف قاعدية معتدلة"
+  },
+
+  "system": {
+    "children_at_risk": "{count} طفل دون الخامسة في خطر",
+    "district_alert":   "تنبيه لمنطقة {district}",
+    "time_window":      "نافذة الخطر: {days} أيام القادمة",
+    "generated_at":     "تم الإنشاء: {datetime}",
+    "data_sources":     "مصادر البيانات: {sources}",
+    "confidence":       "الثقة: {percent}٪"
+  }
+}

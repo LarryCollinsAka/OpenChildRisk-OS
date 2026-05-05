@@ -1,0 +1,85 @@
+{
+  "_meta": {
+    "language": "English",
+    "code": "en",
+    "direction": "ltr",
+    "version": "1.0.0",
+    "last_updated": "2026-05-04",
+    "translators": ["OpenChildRisk OS Team"]
+  },
+
+  "risk_levels": {
+    "HIGH":     "HIGH",
+    "MEDIUM":   "MEDIUM",
+    "LOW":      "LOW",
+    "CRITICAL": "CRITICAL",
+    "UNKNOWN":  "UNKNOWN"
+  },
+
+  "hazard_types": {
+    "cholera":       "Cholera",
+    "heat":          "Heatwave",
+    "flood":         "Flooding",
+    "drought":       "Drought",
+    "air_pollution": "Air Pollution",
+    "malnutrition":  "Acute Malnutrition",
+    "measles":       "Measles Outbreak",
+    "conflict":      "Armed Conflict",
+    "displacement":  "Mass Displacement",
+    "compound":      "Compound Crisis"
+  },
+
+  "alert_messages": {
+    "HIGH": "{risk_type} risk detected. {children_at_risk} children at risk. {action}",
+    "MEDIUM": "Moderate {risk_type} risk. {children_at_risk} children potentially affected. {action}",
+    "LOW": "Low {risk_type} risk in {district}. Routine monitoring advised."
+  },
+
+  "actions": {
+    "cholera": {
+      "HIGH":   "Pre-position ORS at all health posts. Alert CHWs immediately. Activate water chlorination. Notify district health officer.",
+      "MEDIUM": "Increase CHW monitoring visits. Check and treat water sources. Ensure ORS stocks are adequate.",
+      "LOW":    "Maintain routine surveillance. No immediate action required."
+    },
+    "heat": {
+      "HIGH":   "Open cooling centres. Distribute oral rehydration salts. Alert health facilities. Suspend outdoor school activities.",
+      "MEDIUM": "Increase water distribution. Monitor under-5 for dehydration. Advise communities to limit sun exposure.",
+      "LOW":    "Standard heat precautions. Monitor vulnerable households."
+    },
+    "flood": {
+      "HIGH":   "Evacuate flood-prone areas. Pre-position emergency supplies. Alert schools and clinics. Activate emergency response.",
+      "MEDIUM": "Prepare evacuation routes. Stock emergency supplies. Monitor water levels daily.",
+      "LOW":    "Monitor rainfall and water levels. Ensure drainage systems are clear."
+    },
+    "drought": {
+      "HIGH":   "Activate emergency food distribution. Screen all under-5 for malnutrition. Deploy mobile health teams.",
+      "MEDIUM": "Increase nutrition screening. Distribute water purification supplies. Monitor food prices.",
+      "LOW":    "Routine drought monitoring. Assess water source levels."
+    },
+    "malnutrition": {
+      "HIGH":   "Open therapeutic feeding centres. Deploy nutrition teams. Alert WFP and UNICEF immediately.",
+      "MEDIUM": "Increase MUAC screening. Distribute supplementary food. Refer SAM cases immediately.",
+      "LOW":    "Routine nutrition surveillance. Monthly MUAC screening."
+    }
+  },
+
+  "reasons": {
+    "heavy_rainfall":          "heavy rainfall detected",
+    "low_sanitation":          "critically low sanitation coverage",
+    "insufficient_sanitation": "insufficient sanitation coverage",
+    "high_temperature":        "dangerous heat accelerating disease spread",
+    "flood_conditions":        "active flooding conditions",
+    "drought_conditions":      "drought conditions detected",
+    "conflict_displacement":   "conflict-related displacement",
+    "moderate_conditions":     "moderate baseline conditions"
+  },
+
+  "system": {
+    "children_at_risk":    "{count} children under 5 at risk",
+    "district_alert":      "Alert for {district}",
+    "time_window":         "Risk window: next {days} days",
+    "generated_at":        "Generated: {datetime}",
+    "data_sources":        "Data sources: {sources}",
+    "confidence":          "Confidence: {percent}%"
+  }
+}

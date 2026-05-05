@@ -1,0 +1,12 @@
+{
+  "_meta": {
+    "language": "Español",
+    "code": "es",
+    "direction": "ltr",
+    "version": "1.0.0",
+    "status": "pending_translation",
+    "last_updated": "2026-05-04",
+    "notes": "Translation pending. Fallback to English until complete. Primary use: Latin America UNICEF/WFP operations."
+  },
+  "_fallback": "en"
+}

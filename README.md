@@ -3,13 +3,20 @@
 > **Open-source child risk intelligence infrastructure
 > for climate-vulnerable countries.**
 
+## What OpenChildRisk OS Does
+
+Transforms climate and health data into **child-specific operational intelligence** for humanitarian responders.
+
+
 Built on UNICEF's Children's Climate Risk Index (CCRI) methodology
 and aligned with the State of the World's Children policy framework.
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker)](docker-compose.yml)
 [![UNICEF Aligned](https://img.shields.io/badge/UNICEF-Aligned-00AEEF)](docs/UNICEF-ALIGNMENT.md)
-[![Status](https://img.shields.io/badge/Status-Active%20Development-green)]()
+[![Phase 2 In Progress](https://img.shields.io/badge/Status-Phase%202%20In%20Progress-yellow)]()
+[![Database Tables: 44](https://img.shields.io/badge/Database%20Tables-44-green)]()
+[![Geographic Coverage: 250 Countries](https://img.shields.io/badge/Countries-250-brightgreen)]()
 
 ---
 
@@ -32,25 +39,26 @@ and aligned with the State of the World's Children policy framework.
 
 ---
 
-## 🚨 The Problem
+## Current State: PHASE 1 COMPLETE ✅
 
-Every year, climate shocks become child crises —
-not because the signals are invisible,
-but because **no system connects those signals
-to the children, services, and decisions that matter.**
+- ✅ 32 database tables (geography, organizations, hazards, users)
+- ✅ 250 countries, 5,308 states, 154,223 cities
+- ✅ Multi-organization architecture (Spatie permissions)
+- ✅ Platform + organization user types
+- ✅ PostgreSQL with PostGIS + pg_trgm
 
-```
+---
 
-Climate signal detected
-        ↓
-  Nobody knows which schools are in the flood path
-  Nobody knows which clinics will be cut off
-  Nobody knows which children are most exposed
-  Nobody knows who should act first
-        ↓
-  Reactive response — days too late
-  Children already sick, malnourished, out of school
+### The Problem
 
+UNICEF field officers need to know:
+- **Which children** are at risk (not just "people")
+- **Why** they're vulnerable (compound factors)
+- **Where** to intervene (priority districts)
+- **Who** should respond (community health workers)
+
+Generic climate alerts say: "Flood in Far North"
+OpenChildRisk says: "Flood affecting 12,000 under-5 children + 3,200 children with disabilities in Mora. Cholera risk HIGH due to weak WASH. Alert sent to 15 CHWs."
 ```
 
 The numbers behind this failure:

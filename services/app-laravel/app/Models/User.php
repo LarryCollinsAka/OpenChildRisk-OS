@@ -84,9 +84,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return Organization::whereIn('id', function ($query) {
             $query->select('organization_id')
-                  ->from('model_has_roles')
-                  ->where('model_type', self::class)
-                  ->where('model_id', $this->id);
+                ->from('model_has_roles')
+                ->where('model_type', self::class)
+                ->where('model_id', $this->id);
         })->get();
     }
 
@@ -150,7 +150,39 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $query->whereHas('roles', function ($q) use ($role, $organizationId) {
             $q->where('name', $role)
-              ->where('organization_id', $organizationId);
+                ->where('organization_id', $organizationId);
         });
+    }
+
+    /**
+     * Field worker profile (if user is operational field worker)
+     */
+    public function fieldWorker()
+    {
+        return $this->belongsTo(FieldWorker::class, 'field_worker_id');
+    }
+
+    /**
+     * Check if user is a field worker
+     */
+    public function isFieldWorker(): bool
+    {
+        return !is_null($this->field_worker_id);
+    }
+
+    /**
+     * Check if user is platform admin
+     */
+    public function isPlatformUser(): bool
+    {
+        return $this->user_type === 'platform';
+    }
+
+    /**
+     * Check if user is organization member
+     */
+    public function isOrganizationUser(): bool
+    {
+        return $this->user_type === 'organization';
     }
 }

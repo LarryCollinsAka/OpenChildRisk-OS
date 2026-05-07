@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             LanguageSeeder::class,
             GeographySeeder::class,
             OrganizationSeeder::class,
+            HazardCategorySeeder::class, 
             HazardTypeSeeder::class,
             RolePermissionSeeder::class,
             UserSeeder::class,

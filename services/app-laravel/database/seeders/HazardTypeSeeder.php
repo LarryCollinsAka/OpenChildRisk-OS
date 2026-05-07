@@ -8,37 +8,28 @@ use Illuminate\Support\Str;
 
 class HazardTypeSeeder extends Seeder
 {
-    /**
-     * Seed hazard types for child risk assessment.
-     * 
-     * Categories (max 2 levels):
-     * - Disease (cholera, malaria, measles)
-     * - Climate (flood, drought, heat)
-     * - Conflict (armed conflict, displacement)
-     * - Nutrition (malnutrition)
-     * - WASH (water contamination)
-     */
     public function run(): void
     {
+        // Get category IDs
+        $disease = DB::table('hazard_categories')->where('code', 'disease')->first();
+        $climate = DB::table('hazard_categories')->where('code', 'climate')->first();
+        $conflict = DB::table('hazard_categories')->where('code', 'conflict')->first();
+        $nutrition = DB::table('hazard_categories')->where('code', 'nutrition')->first();
+
+        if (!$disease || !$climate || !$conflict || !$nutrition) {
+            $this->command->error('Hazard categories not found. Run HazardCategorySeeder first.');
+            return;
+        }
+
         $hazards = [
-            // DISEASE CATEGORY
-            [
-                'id' => $diseaseId = Str::uuid()->toString(),
-                'name' => 'Disease',
-                'code' => 'disease',
-                'description' => 'Infectious diseases affecting children',
-                'parent_id' => null,
-                'category' => 'disease',
-                'risk_engine' => null,
-                'default_severity' => 7,
-                'typical_time_window_days' => 7,
-            ],
+            // DISEASE HAZARDS
             [
                 'id' => Str::uuid()->toString(),
+                'category_id' => $disease->id,
                 'name' => 'Cholera',
                 'code' => 'cholera',
                 'description' => 'Waterborne bacterial infection causing severe diarrhea',
-                'parent_id' => $diseaseId,
+                'parent_id' => null,
                 'category' => 'disease',
                 'risk_engine' => 'cholera',
                 'default_severity' => 8,
@@ -46,10 +37,11 @@ class HazardTypeSeeder extends Seeder
             ],
             [
                 'id' => Str::uuid()->toString(),
+                'category_id' => $disease->id,
                 'name' => 'Malaria',
                 'code' => 'malaria',
                 'description' => 'Mosquito-borne parasitic infection',
-                'parent_id' => $diseaseId,
+                'parent_id' => null,
                 'category' => 'disease',
                 'risk_engine' => 'malaria',
                 'default_severity' => 7,
@@ -57,34 +49,37 @@ class HazardTypeSeeder extends Seeder
             ],
             [
                 'id' => Str::uuid()->toString(),
+                'category_id' => $disease->id,
                 'name' => 'Measles',
                 'code' => 'measles',
                 'description' => 'Highly contagious viral infection',
-                'parent_id' => $diseaseId,
+                'parent_id' => null,
                 'category' => 'disease',
                 'risk_engine' => 'measles',
                 'default_severity' => 7,
                 'typical_time_window_days' => 10,
             ],
-
-            // CLIMATE CATEGORY
-            [
-                'id' => $climateId = Str::uuid()->toString(),
-                'name' => 'Climate',
-                'code' => 'climate',
-                'description' => 'Climate-related hazards',
-                'parent_id' => null,
-                'category' => 'climate',
-                'risk_engine' => null,
-                'default_severity' => 6,
-                'typical_time_window_days' => 14,
-            ],
             [
                 'id' => Str::uuid()->toString(),
+                'category_id' => $disease->id,
+                'name' => 'Diarrheal Diseases',
+                'code' => 'diarrhea',
+                'description' => 'Various causes of acute diarrhea in children',
+                'parent_id' => null,
+                'category' => 'disease',
+                'risk_engine' => 'diarrhea',
+                'default_severity' => 6,
+                'typical_time_window_days' => 3,
+            ],
+
+            // CLIMATE HAZARDS
+            [
+                'id' => Str::uuid()->toString(),
+                'category_id' => $climate->id,
                 'name' => 'Flood',
                 'code' => 'flood',
                 'description' => 'Heavy rainfall causing flooding',
-                'parent_id' => $climateId,
+                'parent_id' => null,
                 'category' => 'climate',
                 'risk_engine' => 'flood',
                 'default_severity' => 7,
@@ -92,10 +87,11 @@ class HazardTypeSeeder extends Seeder
             ],
             [
                 'id' => Str::uuid()->toString(),
+                'category_id' => $climate->id,
                 'name' => 'Drought',
                 'code' => 'drought',
                 'description' => 'Prolonged lack of rainfall',
-                'parent_id' => $climateId,
+                'parent_id' => null,
                 'category' => 'climate',
                 'risk_engine' => 'drought',
                 'default_severity' => 6,
@@ -103,34 +99,25 @@ class HazardTypeSeeder extends Seeder
             ],
             [
                 'id' => Str::uuid()->toString(),
+                'category_id' => $climate->id,
                 'name' => 'Extreme Heat',
                 'code' => 'heat',
                 'description' => 'Dangerous high temperatures',
-                'parent_id' => $climateId,
+                'parent_id' => null,
                 'category' => 'climate',
                 'risk_engine' => 'heat',
                 'default_severity' => 6,
                 'typical_time_window_days' => 5,
             ],
 
-            // CONFLICT CATEGORY
-            [
-                'id' => $conflictId = Str::uuid()->toString(),
-                'name' => 'Conflict',
-                'code' => 'conflict',
-                'description' => 'Armed conflict and displacement',
-                'parent_id' => null,
-                'category' => 'conflict',
-                'risk_engine' => null,
-                'default_severity' => 9,
-                'typical_time_window_days' => 1,
-            ],
+            // CONFLICT HAZARDS
             [
                 'id' => Str::uuid()->toString(),
+                'category_id' => $conflict->id,
                 'name' => 'Armed Conflict',
                 'code' => 'armed_conflict',
                 'description' => 'Active fighting affecting civilians',
-                'parent_id' => $conflictId,
+                'parent_id' => null,
                 'category' => 'conflict',
                 'risk_engine' => 'conflict',
                 'default_severity' => 9,
@@ -138,26 +125,40 @@ class HazardTypeSeeder extends Seeder
             ],
             [
                 'id' => Str::uuid()->toString(),
+                'category_id' => $conflict->id,
                 'name' => 'Displacement',
                 'code' => 'displacement',
                 'description' => 'Population forced to flee homes',
-                'parent_id' => $conflictId,
+                'parent_id' => null,
                 'category' => 'conflict',
                 'risk_engine' => 'displacement',
                 'default_severity' => 8,
                 'typical_time_window_days' => 3,
             ],
 
-            // NUTRITION CATEGORY
+            // NUTRITION HAZARDS
             [
                 'id' => Str::uuid()->toString(),
-                'name' => 'Malnutrition',
-                'code' => 'malnutrition',
-                'description' => 'Severe acute malnutrition in children',
+                'category_id' => $nutrition->id,
+                'name' => 'Severe Acute Malnutrition',
+                'code' => 'sam',
+                'description' => 'Severe wasting in children requiring urgent treatment',
                 'parent_id' => null,
                 'category' => 'nutrition',
                 'risk_engine' => 'malnutrition',
-                'default_severity' => 8,
+                'default_severity' => 9,
+                'typical_time_window_days' => 7,
+            ],
+            [
+                'id' => Str::uuid()->toString(),
+                'category_id' => $nutrition->id,
+                'name' => 'Food Insecurity',
+                'code' => 'food_insecurity',
+                'description' => 'Lack of access to adequate food',
+                'parent_id' => null,
+                'category' => 'nutrition',
+                'risk_engine' => 'food_security',
+                'default_severity' => 7,
                 'typical_time_window_days' => 14,
             ],
         ];
@@ -172,6 +173,6 @@ class HazardTypeSeeder extends Seeder
             ]);
         }
 
-        $this->command->info('✔ Seeded ' . count($hazards) . ' hazard types');
+        $this->command->info('✔ Seeded ' . count($hazards) . ' hazard types across categories');
     }
 }

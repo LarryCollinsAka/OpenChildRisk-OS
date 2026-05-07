@@ -2,24 +2,30 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
     /**
      * Seed the application's database.
+     * 
+     * Order matters:
+     * 1. Languages (required by translations)
+     * 2. Geography (countries → states → cities)
+     * 3. Organizations (UNICEF)
+     * 4. Hazard types (cholera, malaria, etc.)
+     * 5. Roles & Permissions
+     * 6. Users (with roles)
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        $this->call([
+            LanguageSeeder::class,
+            GeographySeeder::class,
+            OrganizationSeeder::class,
+            HazardTypeSeeder::class,
+            RolePermissionSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }

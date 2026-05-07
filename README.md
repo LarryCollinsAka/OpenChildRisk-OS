@@ -18,6 +18,10 @@ and aligned with the State of the World's Children policy framework.
 [![Database Tables: 44](https://img.shields.io/badge/Database%20Tables-44-green)]()
 [![Geographic Coverage: 250 Countries](https://img.shields.io/badge/Countries-250-brightgreen)]()
 
+**Current Version:** 0.2.0-alpha  
+**Last Updated:** May 7, 2026  
+**MVP Target:** Cameroon Far North Region
+
 ---
 
 ## 📋 Table of Contents
@@ -125,6 +129,35 @@ We are building **decision infrastructure** —
 the missing layer between climate intelligence
 and child protection action.
 
+---
+
+# What Makes OpenChildRisk OS Different
+
+## Not Another Dashboard
+
+OpenChildRisk OS is not a monitoring dashboard.
+
+It is **operational intelligence infrastructure** designed to:
+
+- **Predict** climate-driven health risks before they escalate
+- **Prioritize** which districts need intervention first
+- **Route** alerts to frontline responders with context
+- **Track** whether interventions actually worked
+- **Explain** every risk score in human-readable terms
+
+## Technical Differentiation
+
+| Feature | Generic Climate Systems | OpenChildRisk OS |
+|---------|------------------------|------------------|
+| **Focus** | Hazard detection | Child vulnerability |
+| **Output** | "Flood detected" | "12,000 under-5 + 3,200 disabled children at risk in Mora. Cholera HIGH (poor WASH). 15 CHWs alerted." |
+| **Risk Model** | Single hazard | Compound (hazard × vulnerability × capacity) |
+| **Users** | Analysts | Field responders (CHWs, nurses, coordinators) |
+| **Delivery** | Web dashboard | SMS, WhatsApp, offline-first |
+| **Geography** | National averages | District-level operational targeting |
+| **Population** | Homogeneous | Differentiated (under-5, disabled, displaced) |
+| **Loop** | One-way alerts | Full cycle: Alert → Intervention → Outcome |
+| **Explainability** | Black box scores | Transparent reasoning + recommendations |
 ---
 
 ## ⚙️ How It Works
@@ -399,6 +432,48 @@ This means:
 - ✔ Governments and humanitarian organizations
   may deploy without licensing fees
 - ✔ Countries may adapt for local contexts
+
+---
+
+# Frequently Asked Questions
+
+## General
+
+**Q: Is this a monitoring dashboard?**  
+A: No. OpenChildRisk OS is **operational intelligence infrastructure**. Dashboards are a delivery mechanism, but the core value is predictive risk modeling, operational prioritization, and intervention tracking.
+
+**Q: Can this replace existing systems?**  
+A: No. OpenChildRisk OS is designed to **augment** existing systems (DHIS2, WHO surveillance, GIS platforms) by providing a unified child vulnerability intelligence layer.
+
+**Q: Why focus on children specifically?**  
+A: Children are disproportionately affected by climate shocks but often invisible in generic population statistics. Age-specific, disability-aware, and vulnerability-differentiated modeling enables more effective interventions.
+
+## Technical
+
+**Q: Can this run offline?**  
+A: Partially. The system is designed for **intermittent connectivity**. Field workers receive SMS/WhatsApp alerts that work offline. Data syncs when connectivity resumes.
+
+**Q: What's the minimum hardware requirement?**  
+A: Development: 8GB RAM. Production (single country): 16GB RAM, 500GB storage.
+
+**Q: Can I deploy this for a different country?**  
+A: Yes. The system includes 250 countries by default. You add districts, indicators, and field workers for your target region.
+
+**Q: How do I get indicator data?**  
+A: Phase 2 includes connectors for DHIS2, CSV imports, and manual entry. Phase 3 adds automated API sync with UNICEF, WHO, and climate data sources.
+
+## Humanitarian
+
+**Q: Does this work in conflict zones?**  
+A: Yes. The system models conflict as a hazard type and includes displacement tracking. SMS/WhatsApp delivery works in low-infrastructure environments.
+
+**Q: Can multiple organizations use this together?**  
+A: Yes. Multi-tenancy is built-in. UNICEF, WHO, WFP, and NGOs can operate on the same platform with data isolation and coordination capabilities.
+
+**Q: How much does it cost to operate?**  
+A: Cloud hosting: ~$300-500/month. SMS costs: ~$0.024/message (Africa). Open-source means no licensing fees.
+
+---
 
 See [LICENSE](LICENSE) for full terms.
 

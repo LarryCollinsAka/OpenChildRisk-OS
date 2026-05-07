@@ -20,7 +20,7 @@ and aligned with the State of the World's Children policy framework.
 
 **Current Version:** 0.2.0-alpha  
 **Last Updated:** May 7, 2026  
-**MVP Target:** Cameroon Far North Region
+**MVP Target:** Cameroon East and Far North Region
 
 ---
 

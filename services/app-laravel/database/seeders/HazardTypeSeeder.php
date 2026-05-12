@@ -173,6 +173,6 @@ class HazardTypeSeeder extends Seeder
             ]);
         }
 
-        $this->command->info('✔ Seeded ' . count($hazards) . ' hazard types across categories');
+        $this->command->info('Seeded ' . count($hazards) . ' hazard types across categories');
     }
 }

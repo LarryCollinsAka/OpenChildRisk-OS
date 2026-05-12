@@ -298,9 +298,130 @@ export default function Dashboard({ mapDistricts, stats }) {
                 </div>
             </div>
 
-            {/* Rest of the dashboard components... */}
-            {/* (Keeping the rest unchanged for brevity) */}
-            
+            {/* ================================================================ */}
+            {/* WHAT CHANGED TODAY (Temporal Awareness Panel)                   */}
+            {/* ================================================================ */}
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 mb-6">
+                <div className="px-6 py-4 border-b border-gray-200">
+                    <h3 className="text-lg font-semibold text-gray-900">What Changed Today</h3>
+                </div>
+                <div className="p-6">
+                    <div className="flow-root">
+                        <ul className="-mb-8">
+                            {recentChanges.map((item, idx) => {
+                                const Icon = item.icon
+                                return (
+                                    <li key={idx}>
+                                        <div className="relative pb-8">
+                                            {/* Timeline connector line */}
+                                            {idx !== recentChanges.length - 1 && (
+                                                <span className="absolute left-5 top-5 -ml-px h-full w-0.5 bg-gray-200" />
+                                            )}
+                                            <div className="relative flex items-start space-x-3">
+                                                <div className="relative">
+                                                    <div className="h-10 w-10 rounded-full bg-gray-50 flex items-center justify-center ring-8 ring-white">
+                                                        <Icon className={`h-5 w-5 ${item.color}`} />
+                                                    </div>
+                                                </div>
+                                                <div className="flex-1 min-w-0">
+                                                    <p className="text-sm font-medium text-gray-900">
+                                                        {item.change}
+                                                    </p>
+                                                    <p className="text-sm text-gray-600 mt-0.5">
+                                                        {item.indicator}
+                                                    </p>
+                                                    <p className="text-xs text-gray-500 mt-1">
+                                                        {item.time}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            {/* ================================================================ */}
+            {/* DISTRICT RISK SNAPSHOT TABLE                                     */}
+            {/* ================================================================ */}
+            {/* Compressed operational view of all districts                     */}
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 mb-6">
+                <div className="px-6 py-4 border-b border-gray-200">
+                    <h3 className="text-lg font-semibold text-gray-900">District Risk Snapshot — Far North Region</h3>
+                </div>
+                <div className="overflow-hidden">
+                    <table className="min-w-full divide-y divide-gray-200">
+                        <thead className="bg-gray-50">
+                            <tr>
+                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">District</th>
+                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Risk Score</th>
+                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Vulnerable Children</th>
+                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Key Factors</th>
+                            </tr>
+                        </thead>
+                        <tbody className="bg-white divide-y divide-gray-200">
+                            {districtRiskSnapshot.map((district) => {
+                                const statusColors = {
+                                    'Critical': 'bg-red-100 text-red-800',
+                                    'High': 'bg-orange-100 text-orange-800',
+                                    'Medium': 'bg-yellow-100 text-yellow-800',
+                                    'Low': 'bg-green-100 text-green-800',
+                                }
+                                return (
+                                    <tr key={district.district} className="hover:bg-gray-50">
+                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            {district.district}
+                                        </td>
+                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">
+                                            {district.risk}
+                                        </td>
+                                        <td className="px-6 py-4 whitespace-nowrap">
+                                            <span className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${statusColors[district.status]}`}>
+                                                {district.status}
+                                            </span>
+                                        </td>
+                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            {district.population}
+                                        </td>
+                                        <td className="px-6 py-4 text-sm text-gray-600">
+                                            {district.factors}
+                                        </td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            {/* ================================================================ */}
+            {/* DATA FRESHNESS (Trust Building)                                  */}
+            {/* ================================================================ */}
+            {/* Shows when data sources were last updated                        */}
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+                <div className="px-6 py-4 border-b border-gray-200">
+                    <h3 className="text-lg font-semibold text-gray-900">Data Freshness</h3>
+                </div>
+                <div className="p-6">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        {dataFreshness.map((source) => (
+                            <div key={source.source} className="flex items-center justify-between">
+                                <div className="flex items-center flex-1">
+                                    <div className={`w-2 h-2 rounded-full ${source.color} mr-3`} />
+                                    <div>
+                                        <p className="text-sm font-medium text-gray-900">{source.source}</p>
+                                        <p className="text-xs text-gray-500">{source.updated}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </AppLayout>
     )
 }

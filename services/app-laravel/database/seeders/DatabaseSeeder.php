@@ -4,29 +4,65 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
+/**
+ * Database Seeder
+ * 
+ * Master seeder that orchestrates all database seeding in the correct order.
+ * 
+ * Seeding Order Logic:
+ * 1. Foundation data (Languages, Geography, Organizations)
+ * 2. Taxonomy systems (Hazards, Workers, Population Groups, Indicators)
+ * 3. Security (Roles, Permissions, Users)
+ * 4. Operational data (Districts, Data Sources)
+ * 
+ * This order ensures foreign key constraints are satisfied.
+ */
 class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
-     * 
-     * Order matters:
-     * 1. Languages (required by translations)
-     * 2. Geography (countries → states → cities)
-     * 3. Organizations (UNICEF)
-     * 4. Hazard types (cholera, malaria, etc.)
-     * 5. Roles & Permissions
-     * 6. Users (with roles)
      */
     public function run(): void
     {
+        $this->command->info('🌱 Starting Database Seeding...');
+        $this->command->newLine();
+
         $this->call([
-            LanguageSeeder::class,
-            GeographySeeder::class,
-            OrganizationSeeder::class,
-            HazardCategorySeeder::class, 
-            HazardTypeSeeder::class,
-            RolePermissionSeeder::class,
-            UserSeeder::class,
+            // ================================================================
+            // PHASE 1: FOUNDATION DATA (Must run first)
+            // ================================================================
+            // These have no dependencies
+            LanguageSeeder::class,              // Languages for translations
+            GeographySeeder::class,             // Countries, States, Cities
+            OrganizationSeeder::class,          // UNICEF, WHO, etc.
+
+            // ================================================================
+            // PHASE 2: TAXONOMY SYSTEMS
+            // ================================================================
+            // Classification systems that other data depends on
+            HazardTaxonomySeeder::class,        // Hazard categories + types (COMBINED)
+            WorkerTypeSeeder::class,            // Field worker classifications
+            PopulationGroupSeeder::class,       // Vulnerability groups
+            IndicatorSeeder::class,             // Risk indicators (36 indicators)
+
+            // ================================================================
+            // PHASE 3: SECURITY & ACCESS CONTROL
+            // ================================================================
+            // Users need roles/permissions to exist
+            RolePermissionSeeder::class,        // Roles and permissions
+            UserSeeder::class,                  // Admin users
+
+            // ================================================================
+            // PHASE 4: OPERATIONAL DATA
+            // ================================================================
+            // Real operational data for specific regions
+            DataSourceSeeder::class,            // CHIRPS, DHIS2, ACLED, etc.
+            FarNorthCameroonDistrictsSeeder::class,  // Far North districts
+            BertouaDistrictsSeeder::class,      // East Region districts (if exists)
         ]);
+
+        $this->command->newLine();
+        $this->command->info('✅ Database Seeding Complete!');
+        $this->command->newLine();
     }
 }

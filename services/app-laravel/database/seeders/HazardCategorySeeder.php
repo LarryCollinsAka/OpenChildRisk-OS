@@ -76,6 +76,6 @@ class HazardCategorySeeder extends Seeder
 
         DB::table('hazard_categories')->insert($categories);
 
-        $this->command->info('✔ Seeded ' . count($categories) . ' hazard categories');
+        $this->command->info('Seeded ' . count($categories) . ' hazard categories');
     }
 }

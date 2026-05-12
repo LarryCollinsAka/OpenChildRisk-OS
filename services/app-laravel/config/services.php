@@ -35,4 +35,15 @@ return [
         ],
     ],
 
+    /**
+     * CHIRPS Climate Data API Configuration
+     * 
+     * UC Santa Barbara Climate Hazards Center provides global rainfall data
+     * through the IRI Data Library hosted at Columbia University.
+     */
+    'chirps' => [
+        'api_url' => env('CHIRPS_API_URL', 'https://climateserv.servirglobal.net/api'),
+        'enabled' => env('CHIRPS_API_ENABLED', false), // Set to true to use real API
+    ],
+
 ];

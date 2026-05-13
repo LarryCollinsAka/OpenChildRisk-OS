@@ -15,7 +15,9 @@ RUN apk add --no-cache \
     autoconf \
     g++ \
     make \
-    oniguruma-dev
+    oniguruma-dev \
+    nodejs \
+    npm
 
 # Install PHP extensions
 RUN docker-php-ext-install \
@@ -52,6 +54,11 @@ COPY . .
 
 # Generate optimized autoloader
 RUN composer dump-autoload --optimize
+
+# Build frontend assets
+COPY package*.json ./
+RUN npm ci --ignore-scripts
+RUN npm run build
 
 # Set correct permissions
 RUN chown -R www-data:www-data storage bootstrap/cache

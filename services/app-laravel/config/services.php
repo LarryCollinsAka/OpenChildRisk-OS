@@ -44,6 +44,16 @@ return [
     'chirps' => [
         'api_url' => env('CHIRPS_API_URL', 'https://climateserv.servirglobal.net/api'),
         'enabled' => env('CHIRPS_API_ENABLED', false), // Set to true to use real API
+
     ],
+
+    # ACLED Conflict Data API Configuration
+    'acled' => [
+        'api_url' => env('ACLED_API_URL', 'https://acleddata.com/api'),
+        'token_url' => env('ACLED_TOKEN_URL', 'https://acleddata.com/oauth/token'),
+        'email' => env('ACLED_EMAIL'),
+        'password' => env('ACLED_PASSWORD'),
+    ],
+
 
 ];

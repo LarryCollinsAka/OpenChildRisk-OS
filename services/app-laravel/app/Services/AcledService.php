@@ -234,60 +234,24 @@ class AcledService
     }
 
     /**
-     * Store individual ACLED event
+     * Store individual ACLED event using normalizer
      */
     protected function storeEvent(array $acledEvent, Country $country, DataSource $dataSource): array
     {
-        // Map ACLED event type to our conflict category
-        $category = $this->mapEventTypeToCategory($acledEvent['event_type'] ?? '');
+        // Use normalizer for provider-agnostic transformation
+        $normalizer = new \App\Services\Conflict\ConflictEventNormalizer('ACLED');
+        $normalized = $normalizer->normalize($acledEvent, $country);
 
-        if (!$category) {
-            throw new \Exception("Unknown ACLED event type: " . ($acledEvent['event_type'] ?? 'null'));
-        }
+        // Add data source
+        $normalized['data_source_id'] = $dataSource->id;
 
-        // Find matching district by coordinates
-        $district = $this->findDistrictByCoordinates(
-            (float) $acledEvent['latitude'],
-            (float) $acledEvent['longitude']
-        );
-
-        // Calculate severity score
-        $severityScore = $this->calculateSeverityScore($acledEvent, $category);
-
-        // Store event
+        // Store normalized event
         $event = ConflictEvent::updateOrCreate(
             [
-                'external_id' => $acledEvent['event_id_cnty'],
+                'external_id' => $normalized['external_id'],
+                'source_provider' => 'ACLED',
             ],
-            [
-                'conflict_category_id' => $category->id,
-                'district_id' => $district?->id,
-                'country_id' => $country->id,
-                'data_source_id' => $dataSource->id,
-                'event_date' => Carbon::parse($acledEvent['event_date']),
-                'sub_event_type' => $acledEvent['sub_event_type'] ?? null,
-                'notes' => $acledEvent['notes'] ?? null,
-                'actors' => [
-                    'actor1' => $acledEvent['actor1'] ?? null,
-                    'actor2' => $acledEvent['actor2'] ?? null,
-                    'inter1' => $acledEvent['inter1'] ?? null,
-                    'inter2' => $acledEvent['inter2'] ?? null,
-                ],
-                'fatalities' => (int) ($acledEvent['fatalities'] ?? 0),
-                'estimated_displaced' => null,
-                'latitude' => (float) $acledEvent['latitude'],
-                'longitude' => (float) $acledEvent['longitude'],
-                'location_name' => $acledEvent['location'] ?? null,
-                'severity_score' => $severityScore,
-                'status' => 'active',
-                'metadata' => [
-                    'admin1' => $acledEvent['admin1'] ?? null,
-                    'admin2' => $acledEvent['admin2'] ?? null,
-                    'admin3' => $acledEvent['admin3'] ?? null,
-                    'source' => $acledEvent['source'] ?? null,
-                    'source_scale' => $acledEvent['source_scale'] ?? null,
-                ],
-            ]
+            $normalized
         );
 
         return [

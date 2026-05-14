@@ -49,8 +49,6 @@ return [
 
     # ACLED Conflict Data API Configuration
     'acled' => [
-        'api_url' => env('ACLED_API_URL', 'https://acleddata.com/api'),
-        'token_url' => env('ACLED_TOKEN_URL', 'https://acleddata.com/oauth/token'),
         'email' => env('ACLED_EMAIL'),
         'password' => env('ACLED_PASSWORD'),
     ],

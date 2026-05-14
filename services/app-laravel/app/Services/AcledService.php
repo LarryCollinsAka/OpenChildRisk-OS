@@ -192,8 +192,10 @@ class AcledService
 
         // Get or create ACLED data source
         $dataSource = DataSource::firstOrCreate(
-            ['name' => 'ACLED'],
+            ['code' => 'ACLED'],
             [
+                'name' => 'ACLED',
+                'source_type' => 'api',
                 'description' => 'Armed Conflict Location & Event Data Project',
                 'url' => 'https://acleddata.com',
                 'update_frequency' => 'weekly',

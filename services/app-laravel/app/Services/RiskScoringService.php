@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\District;
 use App\Models\DistrictRiskAssessment;
+use App\Models\ClimateObservation;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -113,7 +114,7 @@ class RiskScoringService
                 'primary_drivers' => $composite['drivers'],
                 'explanation' => $explanation,
                 'recommendation_level' => $recommendationLevel,
-                'recommended_interventions' => $this->recommendInterventions($composite, $vulnerabilityScore),
+                'recommended_interventions' => $this->recommendInterventions($composite, $vulnerabilityScore, $climateScore),
                 'population_at_risk' => $district->population ?? 0,
                 'calculation_method' => 'v1.0',
                 'scoring_weights' => self::DEFAULT_WEIGHTS,
@@ -129,27 +130,169 @@ class RiskScoringService
             'district' => $district->name,
             'risk_level' => $riskLevel,
             'composite_score' => $composite['score'],
+            'climate_score' => $climateScore['score'],
         ]);
 
         return $assessment;
     }
 
     /**
-     * Calculate climate risk score
+     * Calculate climate risk score from CHIRPS rainfall data
      */
     protected function calculateClimateScore(District $district, Carbon $date, int $days): array
     {
-        // TODO: Implement actual climate scoring from CHIRPS data
-        // For now, return placeholder
+        $startDate = $date->copy()->subDays($days);
+        
+        // Get rainfall observations for the analysis period
+        $observations = ClimateObservation::where('district_id', $district->id)
+            ->whereBetween('observation_date', [$startDate, $date])
+            ->orderBy('observation_date')
+            ->get();
+
+        if ($observations->isEmpty()) {
+            return [
+                'score' => 0.0,
+                'factors' => [
+                    'rainfall_anomaly_pct' => 0,
+                    'days_analyzed' => $days,
+                    'data_available' => false,
+                    'message' => 'No climate data available for this period',
+                ],
+            ];
+        }
+
+        // Calculate total rainfall for period
+        $totalRainfall = $observations->sum('rainfall_mm');
+        $avgDailyRainfall = $totalRainfall / $observations->count();
+        
+        // Get district climate zone for baseline comparison
+        $climaticBaseline = $this->getClimaticBaseline($district, $date);
+        
+        // Calculate anomaly percentage
+        $expectedRainfall = $climaticBaseline['expected_mm_per_day'] * $days;
+        $anomalyPct = $expectedRainfall > 0 
+            ? (($totalRainfall - $expectedRainfall) / $expectedRainfall) * 100
+            : 0;
+
+        // Scoring logic:
+        // Extreme drought (< -50%): 9-10 points
+        // Severe drought (-30% to -50%): 7-9 points
+        // Moderate drought (-15% to -30%): 5-7 points
+        // Normal (-15% to +15%): 0-2 points
+        // Above normal (+15% to +30%): 2-4 points
+        // Heavy rainfall (+30% to +50%): 4-6 points
+        // Extreme rainfall (> +50%): 6-8 points
+        
+        $score = 0;
+        
+        if ($anomalyPct < -50) {
+            $score = 9 + min(abs($anomalyPct - 50) / 20, 1); // 9-10
+        } elseif ($anomalyPct < -30) {
+            $score = 7 + (abs($anomalyPct + 30) / 20) * 2; // 7-9
+        } elseif ($anomalyPct < -15) {
+            $score = 5 + (abs($anomalyPct + 15) / 15) * 2; // 5-7
+        } elseif ($anomalyPct <= 15) {
+            $score = abs($anomalyPct) / 15 * 2; // 0-2 (near normal)
+        } elseif ($anomalyPct <= 30) {
+            $score = 2 + ($anomalyPct - 15) / 15 * 2; // 2-4
+        } elseif ($anomalyPct <= 50) {
+            $score = 4 + ($anomalyPct - 30) / 20 * 2; // 4-6
+        } else {
+            $score = 6 + min(($anomalyPct - 50) / 30, 2); // 6-8
+        }
+        
+        // Cap at 10
+        $score = min($score, 10.0);
+
+        // Identify heavy rainfall events (potential flooding)
+        $heavyRainfallDays = $observations->filter(function($obs) {
+            return $obs->rainfall_mm > 20; // >20mm in a day
+        })->count();
+
+        // Check for consecutive dry days (drought indicator)
+        $maxConsecutiveDryDays = $this->calculateMaxConsecutiveDryDays($observations);
 
         return [
-            'score' => 0.0,
+            'score' => round($score, 2),
             'factors' => [
-                'rainfall_anomaly_pct' => 0,
-                'days_analyzed' => $days,
-                'data_available' => false,
+                'total_rainfall_mm' => round($totalRainfall, 2),
+                'average_daily_mm' => round($avgDailyRainfall, 2),
+                'expected_rainfall_mm' => round($expectedRainfall, 2),
+                'rainfall_anomaly_pct' => round($anomalyPct, 2),
+                'days_analyzed' => $observations->count(),
+                'days_requested' => $days,
+                'data_available' => true,
+                'heavy_rainfall_days' => $heavyRainfallDays,
+                'max_consecutive_dry_days' => $maxConsecutiveDryDays,
+                'climate_zone' => $climaticBaseline['zone'],
+                'condition' => $this->getClimateCondition($anomalyPct),
             ],
         ];
+    }
+
+    /**
+     * Get climatic baseline for district
+     */
+    protected function getClimaticBaseline(District $district, Carbon $date): array
+    {
+        $month = $date->month;
+        
+        // Far North (Sahel)
+        $sahelDistricts = ['Mora', 'Makary', 'Kousseri', 'Maroua', 'Kolofata', 'Logone-Birni', 'Yagoua'];
+        
+        if (in_array($district->name, $sahelDistricts)) {
+            // Sahel: Rainy season July-September, dry season November-March
+            if ($month >= 7 && $month <= 9) {
+                return ['zone' => 'Sahel', 'expected_mm_per_day' => 4.0]; // ~120mm/month
+            } elseif ($month >= 11 || $month <= 3) {
+                return ['zone' => 'Sahel', 'expected_mm_per_day' => 0.3]; // ~10mm/month (dry)
+            } else {
+                return ['zone' => 'Sahel', 'expected_mm_per_day' => 2.0]; // ~60mm/month
+            }
+        }
+        
+        // East Region (Rainforest)
+        if ($month >= 9 && $month <= 11) {
+            return ['zone' => 'Rainforest', 'expected_mm_per_day' => 6.0]; // ~180mm/month
+        } elseif ($month >= 12 || $month <= 2) {
+            return ['zone' => 'Rainforest', 'expected_mm_per_day' => 2.5]; // ~75mm/month
+        } else {
+            return ['zone' => 'Rainforest', 'expected_mm_per_day' => 4.5]; // ~135mm/month
+        }
+    }
+
+    /**
+     * Calculate maximum consecutive dry days
+     */
+    protected function calculateMaxConsecutiveDryDays($observations): int
+    {
+        $maxDry = 0;
+        $currentDry = 0;
+        
+        foreach ($observations as $obs) {
+            if ($obs->rainfall_mm < 1.0) {
+                $currentDry++;
+                $maxDry = max($maxDry, $currentDry);
+            } else {
+                $currentDry = 0;
+            }
+        }
+        
+        return $maxDry;
+    }
+
+    /**
+     * Get human-readable climate condition
+     */
+    protected function getClimateCondition(float $anomalyPct): string
+    {
+        if ($anomalyPct < -50) return 'extreme_drought';
+        if ($anomalyPct < -30) return 'severe_drought';
+        if ($anomalyPct < -15) return 'moderate_drought';
+        if ($anomalyPct <= 15) return 'normal';
+        if ($anomalyPct <= 30) return 'above_normal';
+        if ($anomalyPct <= 50) return 'heavy_rainfall';
+        return 'extreme_rainfall';
     }
 
     /**
@@ -180,13 +323,8 @@ class RiskScoringService
         $eventCount = $events->count();
         $totalFatalities = $events->sum('fatalities');
 
-        // Scoring logic:
-        // Base score from event frequency (0-5)
         $frequencyScore = min($eventCount / 2, 5.0);
-
-        // Additional score from fatalities (0-5)
         $fatalityScore = min($totalFatalities / 5, 5.0);
-
         $score = min($frequencyScore + $fatalityScore, 10.0);
 
         return [
@@ -195,7 +333,7 @@ class RiskScoringService
                 'event_count' => $eventCount,
                 'total_fatalities' => $totalFatalities,
                 'days_analyzed' => $days,
-                'violent_events' => $events->whereIn('severity_score', '>', 5)->count(),
+                'violent_events' => $events->where('severity_score', '>', 5)->count(),
             ],
         ];
     }
@@ -206,35 +344,29 @@ class RiskScoringService
     protected function calculateVulnerabilityScore(District $district): array
     {
         $score = 0.0;
-        $factors = [];
 
-        // WASH coverage (inverse scoring - low coverage = high vulnerability)
         $washCoverage = $district->wash_coverage ?? 0;
-        $washScore = 10 - ($washCoverage * 10); // 0% coverage = 10, 100% = 0
-        $score += $washScore * 0.4; // 40% weight
+        $washScore = 10 - ($washCoverage * 10);
+        $score += $washScore * 0.4;
 
-        // Sanitation coverage (inverse)
         $sanitationCoverage = $district->sanitation_coverage ?? 0;
         $sanitationScore = 10 - ($sanitationCoverage * 10);
-        $score += $sanitationScore * 0.3; // 30% weight
+        $score += $sanitationScore * 0.3;
 
-        // Population density (higher = higher vulnerability)
         $population = $district->population ?? 0;
         $area = $district->area_sq_km ?? 1;
         $density = $population / $area;
-        $densityScore = min($density / 50, 10); // Cap at 500 people/km²
-        $score += $densityScore * 0.3; // 30% weight
-
-        $factors = [
-            'wash_coverage' => $washCoverage,
-            'sanitation_coverage' => $sanitationCoverage,
-            'population' => $population,
-            'population_density' => round($density, 2),
-        ];
+        $densityScore = min($density / 50, 10);
+        $score += $densityScore * 0.3;
 
         return [
             'score' => min($score, 10.0),
-            'factors' => $factors,
+            'factors' => [
+                'wash_coverage' => $washCoverage,
+                'sanitation_coverage' => $sanitationCoverage,
+                'population' => $population,
+                'population_density' => round($density, 2),
+            ],
         ];
     }
 
@@ -243,7 +375,6 @@ class RiskScoringService
      */
     protected function calculateAccessScore(District $district): array
     {
-        // Check for access constraints
         $constraint = DB::table('district_access_constraints')
             ->where('district_id', $district->id)
             ->where('assessed_at', '>=', now()->subDays(90))
@@ -252,7 +383,7 @@ class RiskScoringService
 
         if (!$constraint) {
             return [
-                'score' => 0.0, // No constraints = fully accessible
+                'score' => 0.0,
                 'factors' => [
                     'access_level' => 'full',
                     'assessment_available' => false,
@@ -260,7 +391,6 @@ class RiskScoringService
             ];
         }
 
-        // Inverse scoring: More constraints = higher score (worse)
         $accessLevelScores = [
             'full' => 0,
             'partial' => 3,
@@ -270,7 +400,6 @@ class RiskScoringService
 
         $score = $accessLevelScores[$constraint->access_level] ?? 0;
 
-        // Additional penalties
         if (!$constraint->road_access) $score += 2;
         if (!$constraint->humanitarian_access) $score += 3;
 
@@ -305,10 +434,8 @@ class RiskScoringService
             }
         }
 
-        // Calculate data completeness
         $completeness = count(array_filter($dataPresent)) / count($dataPresent);
 
-        // Identify primary drivers (top contributors)
         $weightedScores = [];
         foreach ($componentScores as $component => $value) {
             if ($value !== null) {
@@ -327,9 +454,6 @@ class RiskScoringService
         ];
     }
 
-    /**
-     * Determine categorical risk level
-     */
     protected function determineRiskLevel(float $score): string
     {
         foreach (self::RISK_THRESHOLDS as $level => $threshold) {
@@ -340,14 +464,9 @@ class RiskScoringService
         return 'low';
     }
 
-    /**
-     * Determine operational recommendation level
-     */
     protected function determineRecommendationLevel(float $compositeScore, float $accessScore): string
     {
-        // If access is severely constrained, recommendations may be limited
         if ($accessScore >= 8 && $compositeScore >= 7) {
-            // High risk but no access = monitor remotely
             return 'monitor';
         }
 
@@ -357,9 +476,6 @@ class RiskScoringService
         return 'monitor';
     }
 
-    /**
-     * Generate human-readable explanation
-     */
     protected function generateExplanation(
         District $district,
         array $climate,
@@ -375,8 +491,10 @@ class RiskScoringService
         $lines = ["Why {$district->name} is {$riskLevelText} (Score: {$composite['score']}/10):"];
 
         // Climate factors
-        if ($climate['score'] > 5) {
-            $lines[] = "- Climate risk elevated";
+        if ($climate['score'] > 5 && isset($climate['factors']['data_available']) && $climate['factors']['data_available']) {
+            $anomaly = $climate['factors']['rainfall_anomaly_pct'];
+            $condition = $climate['factors']['condition'];
+            $lines[] = "- Climate: {$condition} (anomaly: " . round($anomaly, 1) . "%)";
         }
 
         // Conflict factors
@@ -402,25 +520,21 @@ class RiskScoringService
         if ($access['score'] > 5) {
             $accessLevel = $access['factors']['access_level'];
             $lines[] = "- Operational constraints: {$accessLevel} access";
-            if (!$access['factors']['road_access']) {
+            if (isset($access['factors']['road_access']) && !$access['factors']['road_access']) {
                 $lines[] = "  → Road access limited";
             }
-            if (!$access['factors']['humanitarian_access']) {
+            if (isset($access['factors']['humanitarian_access']) && !$access['factors']['humanitarian_access']) {
                 $lines[] = "  → Humanitarian access restricted";
             }
         }
 
-        // Population exposure
         $population = number_format($district->population ?? 0);
         $lines[] = "- Population at risk: {$population}";
 
         return implode("\n", $lines);
     }
 
-    /**
-     * Recommend priority interventions
-     */
-    protected function recommendInterventions(array $composite, array $vulnerability): array
+    protected function recommendInterventions(array $composite, array $vulnerability, array $climate): array
     {
         $interventions = [];
 
@@ -437,6 +551,16 @@ class RiskScoringService
             $interventions[] = 'Nutrition assessment';
         }
 
-        return $interventions;
+        // Climate-specific interventions
+        if (isset($climate['factors']['condition'])) {
+            if (in_array($climate['factors']['condition'], ['severe_drought', 'extreme_drought'])) {
+                $interventions[] = 'Water trucking';
+            }
+            if (in_array($climate['factors']['condition'], ['heavy_rainfall', 'extreme_rainfall'])) {
+                $interventions[] = 'Flood preparedness';
+            }
+        }
+
+        return array_unique($interventions);
     }
 }

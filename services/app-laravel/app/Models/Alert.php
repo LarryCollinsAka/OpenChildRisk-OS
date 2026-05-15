@@ -45,31 +45,39 @@ class Alert extends Model
 
     protected $fillable = [
         'district_id',
+        'hazard_type_id',
         'risk_score_id',
         'organization_id',
-        'program_deployment_id',
-        'assigned_to_org_id',
-        'type',
-        'risk_level',
+        'title',
         'message',
-        'children_affected',
-        'priority_score',
+        'recommended_action',
+        'severity',
+        'priority',
+        'recipients',
         'status',
-        'access_level',
-        'capacity_status',
-        'triggered_at',
+        'sent_at',
+        'acknowledged_at',
         'resolved_at',
+        'expires_at',
+        'acknowledged_by_user_id',
+        'resolved_by_user_id',
+        'resolution_notes',
+        'delivery_status',
+        'metadata',
     ];
 
     /**
      * Attribute casting.
      */
     protected $casts = [
-        'children_affected' => 'integer',
-        'priority_score'    => 'float',
-        'triggered_at'      => 'datetime',
-        'resolved_at'       => 'datetime',
-        'deleted_at'        => 'datetime',
+        'priority'         => 'integer',
+        'recipients'       => 'array',
+        'metadata'         => 'array',
+        'sent_at'          => 'datetime',
+        'acknowledged_at'  => 'datetime',
+        'resolved_at'      => 'datetime',
+        'expires_at'       => 'datetime',
+        'deleted_at'       => 'datetime',
     ];
 
     // =========================================================================

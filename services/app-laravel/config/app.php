@@ -84,6 +84,24 @@ return [
 
     'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
 
+    'available_locales' =>
+    [
+        'en' => ['name' => 'English', 'native' => 'English', 'flag' => '🇬🇧'],
+        'fr' => ['name' => 'French', 'native' => 'Français', 'flag' => '🇫🇷'],
+        'es' => ['name' => 'Spanish', 'native' => 'Español', 'flag' => '🇪🇸'],
+        'pt' => ['name' => 'Portuguese', 'native' => 'Português', 'flag' => '🇵🇹'],
+        'ar' => ['name' => 'Arabic', 'native' => 'العربية', 'flag' => '🇸🇦', 'rtl' => true],
+        'bn' => ['name' => 'Bangla', 'native' => 'বাংলা', 'flag' => '🇧🇩'],
+        'th' => ['name' => 'Thai', 'native' => 'ไทย', 'flag' => '🇹🇭'],
+        'uk' => ['name' => 'Ukrainian', 'native' => 'Українська', 'flag' => '🇺🇦'],
+        'nl' => ['name' => 'Dutch', 'native' => 'Nederlands', 'flag' => '🇳🇱'],
+        'vi' => ['name' => 'Vietnamese', 'native' => 'Tiếng Việt', 'flag' => '🇻🇳'],
+        'hi' => ['name' => 'Hindi', 'native' => 'हिन्दी', 'flag' => '🇮🇳'],
+    ],
+
+
+    /*
+
     /*
     |--------------------------------------------------------------------------
     | Encryption Key

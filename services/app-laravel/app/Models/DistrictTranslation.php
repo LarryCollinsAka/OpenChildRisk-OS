@@ -10,8 +10,6 @@ use Illuminate\Database\Eloquent\Model;
  *
  * Stores translated names and descriptions for districts.
  * One record per district per language.
- *
- * Supports fallback to English via District::translate()
  */
 class DistrictTranslation extends Model
 {
@@ -19,20 +17,13 @@ class DistrictTranslation extends Model
 
     protected $keyType = 'string';
     public $incrementing = false;
-
     protected $table = 'district_translations';
 
     protected $fillable = [
         'district_id',
-        'language_code',
+        'language_id',
         'name',
         'description',
-        'translated_by',
-        'verified_at',
-    ];
-
-    protected $casts = [
-        'verified_at' => 'datetime',
     ];
 
     /**
@@ -41,5 +32,13 @@ class DistrictTranslation extends Model
     public function district()
     {
         return $this->belongsTo(District::class, 'district_id');
+    }
+
+    /**
+     * Translation belongs to a language.
+     */
+    public function language()
+    {
+        return $this->belongsTo(Language::class, 'language_id');
     }
 }

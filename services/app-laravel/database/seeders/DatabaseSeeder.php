@@ -34,7 +34,8 @@ class DatabaseSeeder extends Seeder
             // These have no dependencies
             LanguageSeeder::class,              // Languages for translations
             GeographySeeder::class,             // Countries, States, Cities
-            OrganizationSeeder::class,          // UNICEF, WHO, etc.
+            OrganizationSeeder::class, 
+            
 
             // ================================================================
             // PHASE 2: TAXONOMY SYSTEMS
@@ -59,6 +60,7 @@ class DatabaseSeeder extends Seeder
             DataSourceSeeder::class,            // CHIRPS, DHIS2, ACLED, etc.
             FarNorthCameroonDistrictsSeeder::class,  // Far North districts
             BertouaDistrictsSeeder::class,      // East Region districts (if exists)
+            DistrictTranslationsSeeder::class,  // District translations
         ]);
 
         $this->command->newLine();

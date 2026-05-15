@@ -6,13 +6,18 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Cache;
 use Carbon\Carbon;
+use App\Models\ClimateObservation;
+use App\Models\DataSource;
+use App\Models\District;
 
 /**
- * CHIRPS Rainfall Data Service - REAL API ONLY
- * 
+ * CHIRPS Rainfall Data Service - REAL API + Database Storage
+ *
  * Fetches rainfall data from ClimateSERV API.
  * Uses CHIRPS Final product with ~21 day lag for station-blended accuracy.
  * Auto-falls back to earlier months if requested dates unavailable.
+ * 
+ * NOW STORES: Observations in climate_observations table for risk scoring.
  */
 class ChirpsService
 {
@@ -33,31 +38,21 @@ class ChirpsService
 
     /**
      * Get the latest safe date range for CHIRPS Final product
-     * 
-     * CHIRPS Final is published ~21 days after month end.
-     * For example, March 2026 Final is available around April 21, 2026.
-     * 
-     * @param int $days Number of days to fetch
-     * @return array [Carbon $startDate, Carbon $endDate]
      */
     public static function getSafeDateRange(int $days = 7): array
     {
         $today = Carbon::now();
-        
-        // CHIRPS Final has ~21 day lag after month end
-        // Go back to ensure we're past the lag period
         $safeEndDate = $today->copy()->subDays(self::CHIRPS_FINAL_LAG_DAYS);
-        
-        // Use the last day of that month
         $endDate = $safeEndDate->endOfMonth();
-        
-        // Calculate start date
         $startDate = $endDate->copy()->subDays($days - 1);
-        
+
         return [$startDate, $endDate];
     }
 
-    public function getRainfallForDistrict($district, Carbon $startDate, Carbon $endDate): array
+    /**
+     * Fetch rainfall and store in database
+     */
+    public function getRainfallForDistrict($district, Carbon $startDate, Carbon $endDate, bool $storeData = true): array
     {
         if (!$this->useRealApi) {
             throw new \Exception("CHIRPS API is disabled. Set CHIRPS_API_ENABLED=true in .env");
@@ -65,7 +60,7 @@ class ChirpsService
 
         // Check cache first
         $cacheKey = "chirps:{$district->id}:{$startDate->format('Ymd')}:{$endDate->format('Ymd')}";
-        
+
         if ($cached = Cache::get($cacheKey)) {
             Log::info("CHIRPS cache hit for {$district->name}");
             return $cached;
@@ -78,7 +73,7 @@ class ChirpsService
             'end' => $endDate->format('Y-m-d'),
         ]);
 
-        // Try up to 6 months back (current month, then 1-5 months prior)
+        // Try up to 6 months back
         $maxAttempts = 6;
         $attemptStartDate = $startDate->copy();
         $attemptEndDate = $endDate->copy();
@@ -98,7 +93,6 @@ class ChirpsService
                     $attemptEndDate
                 );
 
-                // Success! Use these dates
                 $startDate = $attemptStartDate;
                 $endDate = $attemptEndDate;
                 $usedFallback = ($attempt > 1);
@@ -109,17 +103,14 @@ class ChirpsService
                 ]);
 
                 break;
-
             } catch (\Exception $e) {
                 Log::warning("CHIRPS attempt {$attempt} failed: {$e->getMessage()}");
 
-                // If not last attempt, go back one month and try again
                 if ($attempt < $maxAttempts) {
                     $attemptEndDate = $attemptEndDate->copy()->subMonth()->endOfMonth();
-                    $attemptStartDate = $attemptEndDate->copy()->subDays(6); // Keep same 7-day window
+                    $attemptStartDate = $attemptEndDate->copy()->subDays(6);
                 } else {
-                    // Last attempt failed - throw error
-                    throw new \Exception("No CHIRPS data available after trying {$maxAttempts} months. Latest attempt: {$attemptEndDate->format('Y-m')}");
+                    throw new \Exception("No CHIRPS data available after trying {$maxAttempts} months");
                 }
             }
         }
@@ -144,14 +135,69 @@ class ChirpsService
             'analysis' => $this->analyzeRainfall($dailyRainfall),
             'data_source' => 'ClimateSERV CHIRPS API (Final Product)',
             'used_fallback' => $usedFallback,
-            'fallback_notice' => $usedFallback ? 
-                "Requested dates unavailable. Using validated data from {$startDate->format('M d, Y')} to {$endDate->format('M d, Y')}." : 
+            'fallback_notice' => $usedFallback ?
+                "Requested dates unavailable. Using validated data from {$startDate->format('M d, Y')} to {$endDate->format('M d, Y')}." :
                 null,
         ];
+
+        // NEW: Store observations in database
+        if ($storeData) {
+            $this->storeObservations($district, $dailyRainfall);
+        }
 
         Cache::put($cacheKey, $result, 3600);
         return $result;
     }
+
+   /**
+ * Store climate observations in database
+ */
+protected function storeObservations(District $district, array $dailyRainfall): int
+{
+    // Get or create CHIRPS data source
+    $dataSource = DataSource::firstOrCreate(
+        ['code' => 'CHIRPS'],
+        [
+            'name' => 'CHIRPS',
+            'description' => 'Climate Hazards Group InfraRed Precipitation with Station data',
+            'source_type' => 'satellite',
+            'url' => 'https://www.chc.ucsb.edu/data/chirps',
+            'update_frequency' => 'daily',
+            'is_active' => true,
+        ]
+    );
+
+    $stored = 0;
+
+    foreach ($dailyRainfall as $day) {
+        try {
+            ClimateObservation::updateOrCreate(
+                [
+                    'district_id' => $district->id,
+                    'observation_date' => Carbon::parse($day['date']),
+                    'data_source_id' => $dataSource->id,
+                ],
+                [
+                    'rainfall_mm' => $day['rainfall_mm'],
+                    'quality' => 'good',
+                    'confidence' => 1.0,
+                    'spatial_resolution_km' => 5.0,
+                    'metadata' => [
+                        'source' => 'ClimateSERV API',
+                        'product' => 'CHIRPS Final',
+                    ],
+                ]
+            );
+            $stored++;
+        } catch (\Exception $e) {
+            Log::warning("Failed to store observation for {$day['date']}: {$e->getMessage()}");
+        }
+    }
+
+    Log::info("Stored {$stored} climate observations for {$district->name}");
+
+    return $stored;
+}
 
     protected function fetchRealChirpsData(float $lat, float $lng, Carbon $startDate, Carbon $endDate): array
     {
@@ -163,11 +209,11 @@ class ChirpsService
         $geometryString = json_encode($geometry);
 
         $requestPayload = [
-            'datatype' => 0, // CHIRPS
+            'datatype' => 0,
             'begintime' => $startDate->format('m/d/Y'),
             'endtime' => $endDate->format('m/d/Y'),
-            'intervaltype' => 0, // daily
-            'operationtype' => 5, // average
+            'intervaltype' => 0,
+            'operationtype' => 5,
             'geometry' => $geometryString,
         ];
 
@@ -185,7 +231,7 @@ class ChirpsService
         }
 
         $submitData = $submitResponse->json();
-        
+
         if (!is_array($submitData) || empty($submitData[0])) {
             throw new \Exception("Invalid submit response: " . json_encode($submitData));
         }
@@ -193,7 +239,7 @@ class ChirpsService
         $requestId = $submitData[0];
         Log::info("ClimateSERV: Job ID received", ['job_id' => $requestId]);
 
-        // Poll for results (reduced to 10 attempts for faster fallback)
+        // Poll for results
         $maxAttempts = 10;
         $data = null;
 
@@ -220,12 +266,12 @@ class ChirpsService
         }
 
         if (!$data) {
-            throw new \Exception("No data received after {$maxAttempts} polling attempts - likely no data for these dates");
+            throw new \Exception("No data received after {$maxAttempts} polling attempts");
         }
 
         // Parse data
         $dailyRainfall = [];
-        
+
         foreach ($data as $record) {
             try {
                 $date = Carbon::createFromFormat('n/j/Y', $record['date'])->format('Y-m-d');
@@ -256,14 +302,14 @@ class ChirpsService
     protected function analyzeRainfall(array $dailyRainfall): array
     {
         $total = array_sum(array_column($dailyRainfall, 'rainfall_mm'));
-        
+
         $max48h = 0;
         $max48hDate = null;
-        
+
         for ($i = 0; $i < count($dailyRainfall) - 1; $i++) {
-            $sum48h = $dailyRainfall[$i]['rainfall_mm'] + 
-                     ($dailyRainfall[$i + 1]['rainfall_mm'] ?? 0);
-            
+            $sum48h = $dailyRainfall[$i]['rainfall_mm'] +
+                ($dailyRainfall[$i + 1]['rainfall_mm'] ?? 0);
+
             if ($sum48h > $max48h) {
                 $max48h = $sum48h;
                 $max48hDate = $dailyRainfall[$i]['date'];

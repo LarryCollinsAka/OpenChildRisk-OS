@@ -23,30 +23,31 @@ class ConflictEventNormalizer
     /**
      * Canonical category mapping
      * Based on CONFLICT_ONTOLOGY.md v1.0
+     * Updated to match database codes
      */
     const CATEGORY_MAPPING = [
         // ACLED mappings
         'ACLED' => [
-            'Battles' => 'ARMED_CONFLICT',
-            'Explosions/Remote violence' => 'EXPLOSIVE_VIOLENCE',
-            'Violence against civilians' => 'CIVILIAN_TARGETING',
-            'Protests' => 'CIVIL_UNREST',
-            'Riots' => 'CIVIL_UNREST',
-            'Strategic developments' => 'STRATEGIC_DEVELOPMENT',
+            'Battles' => 'BATTLES',
+            'Explosions/Remote violence' => 'EXPLOSIONS',
+            'Violence against civilians' => 'VIOLENCE_CIVILIANS',
+            'Protests' => 'PROTESTS',
+            'Riots' => 'RIOTS',
+            'Strategic developments' => 'STRATEGIC_DEVELOPMENTS',
         ],
         // ICEWS mappings (future)
         'ICEWS' => [
-            'Assault' => 'ARMED_CONFLICT',
-            'Fight' => 'ARMED_CONFLICT',
-            'Protest' => 'CIVIL_UNREST',
-            'Threaten' => 'STRATEGIC_DEVELOPMENT',
-            'Coerce' => 'CIVILIAN_TARGETING',
+            'Assault' => 'BATTLES',
+            'Fight' => 'BATTLES',
+            'Protest' => 'PROTESTS',
+            'Threaten' => 'STRATEGIC_DEVELOPMENTS',
+            'Coerce' => 'VIOLENCE_CIVILIANS',
         ],
         // GDELT mappings (future)
         'GDELT' => [
-            '18*' => 'ARMED_CONFLICT',  // Assault
-            '19*' => 'ARMED_CONFLICT',  // Fight
-            '14*' => 'CIVIL_UNREST',    // Protest
+            '18*' => 'BATTLES',  // Assault
+            '19*' => 'BATTLES',  // Fight
+            '14*' => 'PROTESTS',    // Protest
         ],
     ];
 
@@ -55,12 +56,13 @@ class ConflictEventNormalizer
      * From CONFLICT_ONTOLOGY.md
      */
     const BASE_SEVERITY = [
-        'CIVILIAN_TARGETING' => 9.0,
-        'EXPLOSIVE_VIOLENCE' => 8.0,
-        'ARMED_CONFLICT' => 7.0,
+        'VIOLENCE_CIVILIANS' => 9.0,
+        'EXPLOSIONS' => 8.0,
+        'BATTLES' => 7.0,
         'DISPLACEMENT_EVENT' => 6.0,
-        'CIVIL_UNREST' => 4.0,
-        'STRATEGIC_DEVELOPMENT' => 2.0,
+        'RIOTS' => 4.5,
+        'PROTESTS' => 4.0,
+        'STRATEGIC_DEVELOPMENTS' => 2.0,
     ];
 
     /**
@@ -238,18 +240,23 @@ class ConflictEventNormalizer
      */
     protected function findDistrictByCoordinates(float $lat, float $lng): ?District
     {
-        return District::selectRaw('
-                *,
-                (
-                    6371 * acos(
-                        cos(radians(?)) * cos(radians(centroid_lat)) *
-                        cos(radians(centroid_lng) - radians(?)) +
-                        sin(radians(?)) * sin(radians(centroid_lat))
-                    )
-                ) AS distance
-            ', [$lat, $lng, $lat])
-            ->having('distance', '<', 50) // Within 50km
-            ->orderBy('distance')
-            ->first();
+        $districts = District::selectRaw('
+            *,
+            (
+                6371 * acos(
+                    cos(radians(?)) * cos(radians(centroid_lat)) *
+                    cos(radians(centroid_lng) - radians(?)) +
+                    sin(radians(?)) * sin(radians(centroid_lat))
+                )
+            ) AS distance
+        ', [$lat, $lng, $lat])
+            ->get();
+
+        // Filter by distance in PHP (since HAVING doesn't work without GROUP BY in this context)
+        $filtered = $districts->filter(function ($district) {
+            return $district->distance < 50;
+        });
+
+        return $filtered->sortBy('distance')->first();
     }
 }

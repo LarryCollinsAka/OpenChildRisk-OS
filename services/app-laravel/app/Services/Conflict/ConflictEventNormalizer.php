@@ -197,42 +197,89 @@ class ConflictEventNormalizer
     }
 
     /**
-     * Normalize ICEWS event (future)
+     * Normalize ICEWS event
      */
     protected function normalizeIcews(array $event): array
     {
-        // TODO: Implement ICEWS normalization
-        throw new \Exception("ICEWS normalization not yet implemented");
-    }
+        // Map CAMEO code to canonical category
+        $cameoCode = $event['cameo_code'] ?? '';
+        $rootCode = substr($cameoCode, 0, 2);
 
-    /**
-     * Normalize GDELT event (future)
-     */
-    protected function normalizeGdelt(array $event): array
-    {
-        // TODO: Implement GDELT normalization
-        throw new \Exception("GDELT normalization not yet implemented");
-    }
+        // Determine canonical category from CAMEO root code
+        $canonicalCategory = null;
+        switch ($rootCode) {
+            case '18': // Assault
+            case '19': // Fight
+            case '20': // Use unconventional violence
+                $canonicalCategory = 'BATTLES';
+                break;
+            case '14': // Protest
+                $canonicalCategory = 'PROTESTS';
+                break;
+            case '13': // Threaten
+            case '16': // Reduce relations
+                $canonicalCategory = 'STRATEGIC_DEVELOPMENTS';
+                break;
+            case '17': // Coerce
+                $canonicalCategory = 'VIOLENCE_CIVILIANS';
+                break;
+            default:
+                throw new \Exception("Unmapped CAMEO code: {$cameoCode}");
+        }
 
-    /**
-     * Calculate severity score
-     */
-    protected function calculateSeverity(
-        string $canonicalCategory,
-        int $fatalities,
-        ?int $displaced
-    ): float {
-        $baseSeverity = self::BASE_SEVERITY[$canonicalCategory] ?? 5.0;
+        $category = ConflictCategory::where('code', $canonicalCategory)->first();
+        if (!$category) {
+            throw new \Exception("Canonical category not found: {$canonicalCategory}");
+        }
 
-        // Fatality modifier (max +5 points)
-        $fatalityScore = min($fatalities / 2, 5.0);
+        // Find district by coordinates
+        $district = null;
+        if (!empty($event['latitude']) && !empty($event['longitude'])) {
+            $district = $this->findDistrictByCoordinates(
+                (float) $event['latitude'],
+                (float) $event['longitude']
+            );
+        }
 
-        // Displacement modifier (max +3 points)
-        $displacementScore = $displaced ? min($displaced / 1000, 3.0) : 0;
+        // ICEWS doesn't provide fatality counts in standard format
+        // Use intensity as proxy (negative values indicate conflict intensity)
+        $intensity = (float) ($event['intensity'] ?? 0);
+        $estimatedFatalities = $intensity < -5 ? abs($intensity) : 0;
 
-        $severity = $baseSeverity + $fatalityScore + $displacementScore;
+        // Calculate severity
+        $severity = $this->calculateSeverity(
+            $canonicalCategory,
+            (int) $estimatedFatalities,
+            null
+        );
 
-        return min(round($severity, 2), 10.0);
+        return [
+            'external_id' => $event['event_id'],
+            'conflict_category_id' => $category->id,
+            'canonical_category' => $canonicalCategory,
+            'district_id' => $district?->id,
+            'event_date' => Carbon::parse($event['event_date']),
+            'sub_event_type' => $event['event_text'] ?? null,
+            'notes' => "Source: {$event['source_name']} → Target: {$event['target_name']}",
+            'actors' => [
+                'source' => $event['source_name'] ?? null,
+                'target' => $event['target_name'] ?? null,
+                'source_country' => $event['source_country'] ?? null,
+                'target_country' => $event['target_country'] ?? null,
+            ],
+            'fatalities' => (int) $estimatedFatalities,
+            'latitude' => !empty($event['latitude']) ? (float) $event['latitude'] : null,
+            'longitude' => !empty($event['longitude']) ? (float) $event['longitude'] : null,
+            'location_name' => $event['city'] ?? $event['province'] ?? null,
+            'severity_score' => $severity,
+            'metadata' => [
+                'cameo_code' => $cameoCode,
+                'intensity' => $intensity,
+                'publisher' => $event['publisher'] ?? null,
+                'story_id' => $event['story_id'] ?? null,
+                'province' => $event['province'] ?? null,
+            ],
+        ];
     }
 
     /**
@@ -258,5 +305,38 @@ class ConflictEventNormalizer
         });
 
         return $filtered->sortBy('distance')->first();
+    }
+
+    /**
+     * Calculate severity score
+     * 
+     * Formula: base_severity + fatality_modifier + displacement_modifier
+     * Capped at 10.0
+     */
+    protected function calculateSeverity(
+        string $canonicalCategory,
+        int $fatalities,
+        ?int $displaced
+    ): float {
+        $baseSeverity = self::BASE_SEVERITY[$canonicalCategory] ?? 5.0;
+
+        // Fatality modifier (max +5 points)
+        $fatalityScore = min($fatalities / 2, 5.0);
+
+        // Displacement modifier (max +3 points)
+        $displacementScore = $displaced ? min($displaced / 1000, 3.0) : 0;
+
+        $severity = $baseSeverity + $fatalityScore + $displacementScore;
+
+        return min(round($severity, 2), 10.0);
+    }
+
+    /**
+     * Normalize GDELT event (future)
+     */
+    protected function normalizeGdelt(array $event): array
+    {
+        // TODO: Implement GDELT normalization
+        throw new \Exception("GDELT normalization not yet implemented");
     }
 }

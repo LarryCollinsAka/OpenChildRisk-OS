@@ -35,11 +35,20 @@ class RiskScore extends Model
 
     protected $fillable = [
         'district_id',
-        'hazard_type',
+        'hazard_type_id',
         'score',
-        'confidence',
+        'risk_level',
+        'reason',
+        'children_at_risk',
+        'time_window_days',
+        'input_data',
+        'risk_engine',
+        'engine_version',
+        'calculated_by_user_id',
+        'calculation_source',
+        'calculated_at',
+        'alert_id',
         'metadata',
-        'scored_at',
     ];
 
     /**
@@ -50,10 +59,12 @@ class RiskScore extends Model
      * not be properly stored or retrieved.
      */
     protected $casts = [
-        'score'      => 'float',
-        'confidence' => 'float',
-        'metadata'   => 'array',  // JSON → PHP array automatically
-        'scored_at'  => 'datetime',
+        'score'            => 'float',
+        'children_at_risk' => 'integer',
+        'time_window_days' => 'integer',
+        'input_data'       => 'array',
+        'metadata'         => 'array',
+        'calculated_at'    => 'datetime',
     ];
 
     // =========================================================================

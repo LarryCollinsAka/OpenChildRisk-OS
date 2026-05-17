@@ -47,6 +47,10 @@ return [
 
     ],
 
+    'risk_engine' => [
+        'url' => env('RISK_ENGINE_URL', 'http://risk-engine:8001'),
+    ],
+
     # ACLED Conflict Data API Configuration
     'acled' => [
         'email' => env('ACLED_EMAIL'),

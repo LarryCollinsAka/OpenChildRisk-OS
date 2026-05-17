@@ -29,4 +29,4 @@ EXPOSE 8001
 # Start the FastAPI service
 # Host 0.0.0.0 required for Docker networking
 # Reload disabled in production
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8001", "--reload"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8001", "--workers", "2"]

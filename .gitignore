@@ -3,6 +3,9 @@
 .env.local
 .env.production
 
+# Personal Docker overrides
+docker-compose.override.yml
+
 # Docker volumes
 postgres_data/
 redis_data/

@@ -17,10 +17,12 @@ and aligned with the State of the World's Children policy framework.
 [![Phase 2 In Progress](https://img.shields.io/badge/Status-Phase%202%20In%20Progress-yellow)]()
 [![Database Tables: 44](https://img.shields.io/badge/Database%20Tables-44-green)]()
 [![Geographic Coverage: 250 Countries](https://img.shields.io/badge/Countries-250-brightgreen)]()
+[![Live](https://img.shields.io/badge/Live-openchildrisk.tripleadev.com-brightgreen)](https://openchildrisk.tripleadev.com)
 
 **Current Version:** 0.2.0-alpha  
-**Last Updated:** May 7, 2026  
-**MVP Target:** Cameroon East and Far North Region
+**Last Updated:** May 18, 2026  
+**MVP Target:** Cameroon East and Far North Region  
+**🌐 Live:** https://openchildrisk.tripleadev.com
 
 ---
 

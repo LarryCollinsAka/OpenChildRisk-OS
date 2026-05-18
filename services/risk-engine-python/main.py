@@ -21,11 +21,7 @@ from fastapi import FastAPI
 from fastapi.routing import APIRouter
 from pydantic import BaseModel
 from engines.cholera import CholeraRiskEngine
-
-
-# --- APPLICATION SETUP -------------------------------------------------------
-# Initialize FastAPI with metadata for auto-generated API docs
-# Docs available at: http://localhost:8001/docs
+import os
 
 app = FastAPI(
     title="OpenChildRisk - Risk Engine",
@@ -39,6 +35,8 @@ app = FastAPI(
     version="1.0.0",
     docs_url="/docs",
     redoc_url="/redoc",
+    root_path=os.getenv("ROOT_PATH", ""),
+    root_path_from_headers=True,
 )
 
 
